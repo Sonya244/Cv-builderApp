@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
+import CvFields from '../components/CvFields';
+import DataForm from '../components/DataForm';
 
 
 function App() {
@@ -8,16 +10,22 @@ function App() {
     LastName: 'Doe',
     JobTitle: 'Programmer',
     contactDetails: {
-      phoneNumber: '9999-999',
-      Email: 'johndoe@email.com',
+      phoneNumber: '9999',
+      Email: 'johnnoe@email.com',
     },
     Location: {
       City: 'Amsterdam',
       Country: 'Netherlands'
     }})
   return(
-  <div className='ContainerCv'>
+  <div className='Container'>
+    <div className='ContainerCv'>
     < Navbar user={user}/>
+    <CvFields user={user}/>
+    </div>
+    <div className='ContainerDataForm'>
+      < DataForm />
+    </div>
   </div>)
 }
 
