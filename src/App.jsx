@@ -12,6 +12,7 @@ function App() {
     contactDetails: {
       phoneNumber: '9999',
       Email: 'johnnoe@email.com',
+      webSite: 'johnDoe.com'
     },
     Location: {
       City: 'Amsterdam',
