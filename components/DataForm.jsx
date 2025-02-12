@@ -9,7 +9,7 @@ import React, { Fragment } from 'react';
 
 const buttons = [{
     icon: faUser,
-    text: 'Personal details',
+    text: 'Personal Details',
     
 },
 {
@@ -29,6 +29,10 @@ const buttons = [{
     text: 'Languages'
 }
 ]
+const pageMap = {
+    'Personal Details' : 'PersonalDPage',
+    'Expirience' : 'ExpiriencePage'
+}
 const DataForm = ({ setPage }) => {
  return (
     <div className="DataForm">
@@ -37,7 +41,7 @@ const DataForm = ({ setPage }) => {
         <ul>
             {buttons.map(({icon,text}, i) => 
             <Fragment key={i}> 
-                <li><FontAwesomeIcon icon={icon} className='ListIcon'/>{text}<FontAwesomeIcon icon={faChevronRight} className='ListIconChevron'  onClick={() => setPage(text)}/></li>
+                <li><FontAwesomeIcon icon={icon} className='ListIcon'/>{text}<FontAwesomeIcon icon={faChevronRight} className='ListIconChevron'  onClick={() =>setPage(pageMap[text])}/></li>
                 {i == buttons.length - 1 ? null :  <hr /> }
             </Fragment>
             )}
