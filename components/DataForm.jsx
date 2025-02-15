@@ -14,7 +14,7 @@ const buttons = [{
 },
 {
     icon: faBriefcase,
-    text: 'Expirience',
+    text: 'Experience',
 },
 {
     icon: faGraduationCap,
@@ -31,7 +31,7 @@ const buttons = [{
 ]
 const pageMap = {
     'Personal Details' : 'PersonalDPage',
-    'Expirience' : 'ExpiriencePage'
+    'Experience' : 'ExperiencePage'
 }
 const DataForm = ({ setPage }) => {
  return (
