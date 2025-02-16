@@ -2,20 +2,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { useState } from 'react';
 import Input from './Input';
-const ExperiencePage = ({user, setUser, setPage}) => {
+const ExperiencePage = ({setPage, user, setUser}) => {
 
-        const [job, setJob] = useState('');
-        const [company, setCompany] = useState('');
-        const [website, setWebsite] = useState('');
-        const [startMonth, setStartMonth] = useState('');
-        const [endMonth, setEndMonth] = useState('');
-        const [startYear, setStartYear] = useState('');
-        const [endYear, setEndYear] = useState('');
-    
+   const handleChange = (field, value)  => {
+    setUser((prevUser) => ({
+        ...prevUser,
+        Experience: {
+            ...prevUser.Experience,
+            [field]: value,
+        
+        }
+    }));
+   };
     return(
 <div className="ExperiencePageContainer">
     <h3>Experience</h3>
-    <FontAwesomeIcon icon={faChevronLeft} id='ChevronBackIcon' onClick={() => setPage('DataForm')}/>
+    <FontAwesomeIcon
+     icon={faChevronLeft} 
+     id='ChevronBackIcon'
+      onClick={() => setPage('DataForm')}/>
         <div className='FirstBlock'>
         <button> + Add Experience </button>
         </div>
@@ -27,8 +32,8 @@ const ExperiencePage = ({user, setUser, setPage}) => {
             type='text' 
             name='job'
              id='job'
-             value= {job}
-             onChange={(e) => setJob(e.target.value)}
+             value= {user.Experience.JobTitle}
+             onChange={(e) => handleChange('JobTitle', e.target.value)}
              />
             </div>
             <div className='inputField'>
@@ -36,8 +41,8 @@ const ExperiencePage = ({user, setUser, setPage}) => {
             <input type='text'
              name='company'
               id='company'
-              value={company}
-              onChange={(e) => setCompany(e.target.value)}
+              value={user.Experience.companyName}
+              onChange={(e) => handleChange('companyName', e.target.value)}
               />
             </div>
             <div className='inputField'>
@@ -45,8 +50,8 @@ const ExperiencePage = ({user, setUser, setPage}) => {
             <input type='text'
              name='website'
               id='website'
-              value ={website}
-              onChange ={(e) => setWebsite(e.target.value)}/>
+              value ={user.Experience.companyWebsite}
+              onChange ={(e) => handleChange('companyWebsite', e.target.value)}/>
             </div>
             </form>
         </div>
@@ -59,16 +64,16 @@ const ExperiencePage = ({user, setUser, setPage}) => {
                 <input type='month'
                 name='startMonth'
                 id='startMonth'
-                value={startMonth}
-                onChange ={(e) => setStartMonth(e.target.value)}
+                value={user.Experience.startMonth}
+                onChange ={(e) => handleChange('startMonth' ,e.target.value)}
                 />
                 <label htmlFor='startYear'>Year</label>
                 <input 
                 type='number'
                 name='startYear'
                 id='startYear'
-                value={startYear}
-                onChange = {(e) => setStartYear(e.target.value)}
+                value={user.Experience.startYear}
+                onChange = {(e) => handleChange('startYear', e.target.value)}
                 />
             </div>
             <h4>End Date</h4>
@@ -77,15 +82,15 @@ const ExperiencePage = ({user, setUser, setPage}) => {
                 <input type='month'
                 name='endMonth'
                 id='endMonth'
-                value={endMonth}
-                onChange = {(e) => setEndMonth(e.target.value)}
+                value={user.Experience.endMonth}
+                onChange = {(e) => handleChange('endMonth', e.target.value)}
                 />
                 <label htmlFor='endYear'>Year</label>
                 <input type= 'number'
                 name='endYear'
                 id='endYear'
-                value={endYear}
-                onChange = {(e) => setEndYear(e.target.value)}/>
+                value={user.Experience.endYear}
+                onChange = {(e) => handleChange('endYear', e.target.value)}/>
             </div>
             </form>
         </div>

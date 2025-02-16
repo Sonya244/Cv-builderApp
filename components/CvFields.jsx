@@ -5,9 +5,10 @@ return(
         <div className="Field">
      <h3>Experience</h3>
      <hr />
-      <p></p>
-      <p></p>
-      <p></p>
+      <p>{user.Experience.JobTitle}</p>
+      <p>{user.Experience.companyName}</p>
+      <p>{user.Experience.companyWebsite}</p>
+      
       </div>
       <div className="Field">
      <h3>Education</h3>
