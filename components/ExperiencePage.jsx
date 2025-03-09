@@ -14,6 +14,8 @@ const ExperiencePage = ({setPage, user, setUser}) => {
         }
     }));
    };
+   const currentYear = new Date().getFullYear();//get current date/get exact year
+   const years = Array.from({ length: 20}, (_, i) => currentYear - i);//new array create, mapping in reverse
     return(
 <div className="ExperiencePageContainer">
     <h3>Experience</h3>
@@ -21,10 +23,10 @@ const ExperiencePage = ({setPage, user, setUser}) => {
      icon={faChevronLeft} 
      id='ChevronBackIcon'
       onClick={() => setPage('DataForm')}/>
-        <div className='FirstBlock'>
+        <div className='FirstBlockEx'>
         <button> + Add Experience </button>
         </div>
-        <div className='SecondBlock'>
+        <div className='SecondBlockEx'>
         <form>
             <div className='inputField'>
             <label htmlFor='job'>Job Title</label>
@@ -56,41 +58,61 @@ const ExperiencePage = ({setPage, user, setUser}) => {
             </form>
         </div>
        
-        <div className='ThirdBlock'>
+        <div className='ThirdBlockEx'>
             <form>
-        <h4>Start Date</h4>
-            <div className='inputField'>
-                <label htmlFor='startMonth'>Month</label>
-                <input type='month'
-                name='startMonth'
-                id='startMonth'
-                value={user.Experience.startMonth}
-                onChange ={(e) => handleChange('startMonth' ,e.target.value)}
-                />
-                <label htmlFor='startYear'>Year</label>
-                <input 
-                type='number'
-                name='startYear'
-                id='startYear'
-                value={user.Experience.startYear}
-                onChange = {(e) => handleChange('startYear', e.target.value)}
-                />
+        <h5>Start Date</h5>
+            <div>
+                <select className='month' onChange={(e)=> handleChange('startMonth', e.target.value)}>
+                    <option  value = '' disabled selected>Month</option>
+                    <option value='01'>January</option>
+                    <option value='02'>Febuary</option>
+                    <option value='03'>March</option>
+                    <option value='04'>April</option>
+                    <option value='05'>May</option>
+                    <option value='06'>June</option>
+                    <option value='07'>July</option>
+                    <option value='08'>August</option>
+                    <option value='09'>September</option>
+                    <option value='10'>October</option>
+                    <option value='11'>November</option>
+                    <option value='12'>December</option>
+                    
+                </select>
+                <select className='year' onChange = {(e)=> handleChange('startYear', e.target.value)}>
+                    <option value=''> Year</option>
+                    {years.map((year) => (
+                        <option key={year} value={year}>{year}</option>
+                    ))}
+
+                </select>
+
             </div>
-            <h4>End Date</h4>
-            <div className='inputField'>
-                <label htmlFor='endMonth'>Month</label>
-                <input type='month'
-                name='endMonth'
-                id='endMonth'
-                value={user.Experience.endMonth}
-                onChange = {(e) => handleChange('endMonth', e.target.value)}
-                />
-                <label htmlFor='endYear'>Year</label>
-                <input type= 'number'
-                name='endYear'
-                id='endYear'
-                value={user.Experience.endYear}
-                onChange = {(e) => handleChange('endYear', e.target.value)}/>
+            <h5>End Date</h5>
+            <div>
+            <select className='month' onChange={(e) => handleChange('endMonth', e.target.value)}>
+            <option  value = '' disabled selected>Month</option>
+                    <option value='01'>January</option>
+                    <option value='02'>Febuary</option>
+                    <option value='03'>Mach</option>
+                    <option value='04'>Apil</option>
+                    <option value='05'>May</option>
+                    <option value='06'>June</option>
+                    <option value='07'>July</option>
+                    <option value='08'>August</option>
+                    <option value='09'>September</option>
+                    <option value='10'>October</option>
+                    <option value='11'>November</option>
+                    <option value='12'>December</option>
+                    
+                </select>
+                <select className='year' onChange ={(e) => handleChange('endYear', e.target.value)}>
+                    <option value=''> Year</option>
+                    {years.map((year) => (
+                        <option key={year} value={year}>{year}</option>
+                    ))}
+
+                </select>
+     
             </div>
             </form>
         </div>

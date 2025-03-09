@@ -22,15 +22,19 @@ function App() {
       Country: 'Netherlands'
     },
   Experience: {
-    JobTitle: 'Programmer',
+    JobTitle: '',
     companyName : '',
     companyWebsite : '',
+    startMonth: '',
+    endMonth: '',
+    startYear: '',
+    endYear: ''
   }})
     const [ page, setPage] = useState('DataForm');
     const pages = {
       DataForm: <DataForm setPage={setPage} />,
       PersonalDPage: <PersonalDPage user ={user} setUser={setUser} setPage={setPage} />,
-      ExperiencePage: <ExperiencePage setPage={setPage} />
+      ExperiencePage: <ExperiencePage  user ={user} setUser ={setUser} setPage={setPage} />
     }
   return(
   <div className='Container'>
