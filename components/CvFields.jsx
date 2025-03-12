@@ -7,7 +7,7 @@ return(
      <hr />
      <div className="divClust">
       <p>{user.Experience.JobTitle}</p>
-      <span>{user.Experience.startMonth}/ {user.Experience.startYear} - {user.Experience.endMonth} {user.Experience.endYear}</span>
+      <span>{user.Experience.startMonth}/{user.Experience.startYear} - {user.Experience.endMonth}/{user.Experience.endYear}</span>
       </div>
       <div className="divClustTwo">
       <p>{user.Experience.companyName}</p>
