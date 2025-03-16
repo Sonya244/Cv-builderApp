@@ -171,7 +171,8 @@ margin-left: 20px;
 .PersonalPageContainer,
 .ExperiencePageContainer,
 .EducationPageContainer,
-.SkillsPageContainer{
+.SkillsPageContainer,
+.LanguagesPageContainer{
   font-family: "Open Sans", sans-serif;
   width: 100%;
   height: 100%;
@@ -181,7 +182,8 @@ margin-left: 20px;
 .PersonalPageContainer h3,
 .ExperiencePageContainer h3,
 .EducationPageContainer h3,
-.SkillsPageContainer h3{
+.SkillsPageContainer h3,
+.LanguagesPageContainer h3{
   margin-left: 57px;
   padding-top: 15px;
   letter-spacing: 0.40px;
@@ -197,9 +199,8 @@ margin-left: 20px;
   letter-spacing: 0.35px;
   color: #575b61;
 }
-.FirstBlockEx,
-.FirstBlockEd,
-.FirstBlockSkill{
+.FirstBlock
+{
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -284,13 +285,15 @@ input {
   display: flex;
   justify-content: space-between;
 }
-.SecondBlockSkill{
+.SecondBlockSkill,
+.SecondBlockLang{
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6%
 }
-.SecondBlockSkill .inputField{
+.SecondBlockSkill .inputField,
+.SecondBlockLang .inputField{
   width:42%;
   margin-top: 30px;
 }

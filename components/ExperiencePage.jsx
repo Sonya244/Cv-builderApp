@@ -11,7 +11,7 @@ const ExperiencePage = ({setPage, user, handleChange, years}) => {
      icon={faChevronLeft} 
      id='ChevronBackIcon'
       onClick={() => setPage('DataForm')}/>
-        <div className='FirstBlockEx'>
+        <div className='FirstBlock'>
         <button className='addButton'> + Add Experience </button>
         </div>
         <div className='SecondBlockEx'>

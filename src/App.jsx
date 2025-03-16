@@ -7,6 +7,8 @@ import ExperiencePage from '../components/ExperiencePage';
 import Input from '../components/Input';
 import EducationPage from '../components/EducationPage';
 import SkillsPage from '../components/SkillsPage';
+import LanguagesPage from '../components/LanguagesPage';
+
 
 
 function App() {
@@ -43,10 +45,15 @@ function App() {
   Skills: {
 SkillsName: '',
 Proficiency: ''
+  },
+  Languages: {
+  Language: '',
+  Proficiency: ''
   }
 })
 const currentYear = new Date().getFullYear();//get current date/get exact year
- const years = Array.from({ length: 20}, (_, i) => currentYear - i);//new array create, mapping in reverse
+const years = Array.from({ length: 20}, (_, i) => currentYear - i);//new array create, mapping in reverse
+
 const handleChange = (section, field, value)  => {
   setUser((prevUser) => ({
       ...prevUser,
@@ -63,8 +70,10 @@ const handleChange = (section, field, value)  => {
       PersonalDPage: <PersonalDPage user ={user} setUser={setUser} setPage={setPage} />,
       ExperiencePage: <ExperiencePage  user ={user} setUser ={setUser} setPage={setPage} handleChange={handleChange} years={years}/>,
       EducationPage: <EducationPage user ={user} setUser ={setUser} setPage={setPage} handleChange={handleChange} years= {years}/>,
-      SkillsPage: <SkillsPage user ={user} setUser= {setUser} setPage={setPage} handleChange={handleChange} />
+      SkillsPage: <SkillsPage user ={user} setUser= {setUser} setPage={setPage} handleChange={handleChange} />,
+      LanguagesPage: <LanguagesPage user={user} setUser= {setUser} setPage={setPage} handleChange={handleChange} />
     }
+  
   return(
   <div className='Container'>
     <div className='ContainerCv'>

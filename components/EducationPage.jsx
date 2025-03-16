@@ -9,7 +9,7 @@ const EducationPage = ({user, setPage, handleChange, years}) =>{
 id='ChevronBackIcon'
 icon ={faChevronLeft}
 onClick={()=> setPage('DataForm')}/>
-<div className='FirstBlockEd'>
+<div className='FirstBlock'>
     <button className='addButton'>+ Add Education</button>
 </div>
 <div className='SecondBlockEd'>

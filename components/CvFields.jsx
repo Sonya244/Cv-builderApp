@@ -34,9 +34,10 @@ return(
       <div className="Field">
      <h3>Languages</h3>
      <hr />
-      <p></p>
-      <p></p>
-      <p></p>
+     <div className="divClust">
+      <p>{user.Languages.Language}</p>
+      <span>{user.Languages.Proficiency}</span>
+      </div>
       </div>
     </div>
 

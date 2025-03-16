@@ -33,7 +33,8 @@ const pageMap = {
     'Personal Details' : 'PersonalDPage',
     'Experience' : 'ExperiencePage',
     'Education' : 'EducationPage',
-    'Skills' : 'SkillsPage'
+    'Skills' : 'SkillsPage',
+    'Languages': 'LanguagesPage'
 }
 const DataForm = ({ setPage }) => {
  return (

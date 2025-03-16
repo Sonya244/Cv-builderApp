@@ -10,7 +10,7 @@ const SkillsPage = ({setPage, user, setUser, handleChange}) => {
     id='ChevronBackIcon'
     onClick ={()=> setPage('DataForm')}
     />
-    <div className='FirstBlockSkill'>
+    <div className='FirstBlock'>
         <button className='addButton'> + Add</button>
     </div>
     <div className='SecondBlockSkill'>
@@ -27,10 +27,10 @@ const SkillsPage = ({setPage, user, setUser, handleChange}) => {
     <div className='inputField'>
          <select className='proficiency' onChange={(e)=> handleChange('Skills', 'Proficiency', e.target.value)}>
             <option value='' disabled selected>Proficiency</option>
-            <option value='basic'>Basic</option>
-            <option value='intermediate'>Intermediate</option>
-            <option value='advanced'>Advanced</option>
-            <option value='expert'>Expert</option>
+            <option value='Basic'>Basic</option>
+            <option value='Intermediate'>Intermediate</option>
+            <option value='Advanced'>Advanced</option>
+            <option value='Expert'>Expert</option>
          </select>
         </div>     
     </div>
