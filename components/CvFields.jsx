@@ -17,16 +17,19 @@ return(
       <div className="Field">
      <h3>Education</h3>
      <hr />
-      <p></p>
-      <p></p>
-      <p></p>
+     <div className='divClust'>
+      <p>{user.Education.University}</p>
+      <span>{user.Education.startMonth}/{user.Education.startYear} - {user.Education.endMonth}/{user.Education.endYear}</span>
+      </div>
+      <p>{user.Education.Degree}</p>
       </div>
       <div className="Field">
      <h3>Skills</h3>
      <hr />
-      <p></p>
-      <p></p>
-      <p></p>
+     <div className='divClust'>
+      <p>{user.Skills.SkillsName}</p>
+      <span>{user.Skills.Proficiency}</span>
+      </div>
       </div>
       <div className="Field">
      <h3>Languages</h3>

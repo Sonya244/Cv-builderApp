@@ -170,7 +170,8 @@ margin-left: 20px;
 
 .PersonalPageContainer,
 .ExperiencePageContainer,
-.EducationPageContainer{
+.EducationPageContainer,
+.SkillsPageContainer{
   font-family: "Open Sans", sans-serif;
   width: 100%;
   height: 100%;
@@ -179,7 +180,8 @@ margin-left: 20px;
 }
 .PersonalPageContainer h3,
 .ExperiencePageContainer h3,
-.EducationPageContainer h3{
+.EducationPageContainer h3,
+.SkillsPageContainer h3{
   margin-left: 57px;
   padding-top: 15px;
   letter-spacing: 0.40px;
@@ -196,7 +198,8 @@ margin-left: 20px;
   color: #575b61;
 }
 .FirstBlockEx,
-.FirstBlockEd{
+.FirstBlockEd,
+.FirstBlockSkill{
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -276,9 +279,20 @@ input {
   margin-top: 40px;
 }
 .ThirdBlockEx div,
-.ThirdBlockEd div{
+.ThirdBlockEd div
+{
   display: flex;
   justify-content: space-between;
+}
+.SecondBlockSkill{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6%
+}
+.SecondBlockSkill .inputField{
+  width:42%;
+  margin-top: 30px;
 }
 .ThirdBlockEx h5,
 .ThirdBlockEd h5{
@@ -308,9 +322,14 @@ select.year{
   outline: none;
   border: none;
 }
+
 select {
   padding-left: 10px;
   color: gray;
   font-size: 0.90rem;
   letter-spacing: 0.28px;
+  background-color: #e8e9eb;
+  outline: none;
+  border: none;
+  height: 33px;
 }

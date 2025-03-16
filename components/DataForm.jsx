@@ -32,7 +32,8 @@ const buttons = [{
 const pageMap = {
     'Personal Details' : 'PersonalDPage',
     'Experience' : 'ExperiencePage',
-    'Education' : 'EducationPage'
+    'Education' : 'EducationPage',
+    'Skills' : 'SkillsPage'
 }
 const DataForm = ({ setPage }) => {
  return (

@@ -6,6 +6,7 @@ import PersonalDPage from '../components/PersonalDPage';
 import ExperiencePage from '../components/ExperiencePage';
 import Input from '../components/Input';
 import EducationPage from '../components/EducationPage';
+import SkillsPage from '../components/SkillsPage';
 
 
 function App() {
@@ -38,6 +39,10 @@ function App() {
     endMonth:'',
     startYear: '',
     endYear: ''
+  },
+  Skills: {
+SkillsName: '',
+Proficiency: ''
   }
 })
 const currentYear = new Date().getFullYear();//get current date/get exact year
@@ -57,7 +62,8 @@ const handleChange = (section, field, value)  => {
       DataForm: <DataForm setPage={setPage} />,
       PersonalDPage: <PersonalDPage user ={user} setUser={setUser} setPage={setPage} />,
       ExperiencePage: <ExperiencePage  user ={user} setUser ={setUser} setPage={setPage} handleChange={handleChange} years={years}/>,
-      EducationPage: <EducationPage user ={user} setUser ={setUser} setPage={setPage} handleChange={handleChange} years= {years}/>
+      EducationPage: <EducationPage user ={user} setUser ={setUser} setPage={setPage} handleChange={handleChange} years= {years}/>,
+      SkillsPage: <SkillsPage user ={user} setUser= {setUser} setPage={setPage} handleChange={handleChange} />
     }
   return(
   <div className='Container'>
