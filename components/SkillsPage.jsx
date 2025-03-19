@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { useState } from 'react';
-const SkillsPage = ({setPage, user, setUser, handleChange}) => {
+const SkillsPage = ({setPage, user, setUser, handleChange, addField}) => {
     return(
 <div className='SkillsPageContainer'>
     <h3>Skills</h3>
@@ -11,21 +11,29 @@ const SkillsPage = ({setPage, user, setUser, handleChange}) => {
     onClick ={()=> setPage('DataForm')}
     />
     <div className='FirstBlock'>
-        <button className='addButton'> + Add</button>
+        <button className='addButton'
+        onClick ={()=> addField('Skills', {
+            
+                SkillsName: '',
+                Proficiency: ''
+               
+        })}> + Add</button>
     </div>
+    {user.Skills.map((skill, index)=>(
+        <div key={skill.id}>
     <div className='SecondBlockSkill'>
      <div className='inputField'>
-      <label htmlFor='skilllName'>Skill Name</label>
+      <label htmlFor={`skilllName-${index}`}>Skill Name</label>
             <input type='text'
-            name='skillName'
+            name={`skillName-${index}`}
             id='skillName'
-            value={user.Skills.SkillsName}
-            onChange={(e)=> handleChange('Skills', 'SkillsName', e.target.value)}
+            value={skill.SkillsName}
+            onChange={(e)=> handleChange('Skills',index,  'SkillsName', e.target.value)}
             />
        
       </div>
     <div className='inputField'>
-         <select className='proficiency' onChange={(e)=> handleChange('Skills', 'Proficiency', e.target.value)}>
+         <select className='proficiency' value={skill.Proficiency} onChange={(e)=> handleChange('Skills',index, 'Proficiency', e.target.value)}>
             <option value='' disabled selected>Proficiency</option>
             <option value='Basic'>Basic</option>
             <option value='Intermediate'>Intermediate</option>
@@ -36,6 +44,8 @@ const SkillsPage = ({setPage, user, setUser, handleChange}) => {
     </div>
    
 </div>
+    ))}
+    </div>
     )
 }
 export default SkillsPage

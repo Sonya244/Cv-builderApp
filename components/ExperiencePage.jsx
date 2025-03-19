@@ -1,8 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { useState } from 'react';
-import Input from './Input';
-const ExperiencePage = ({setPage, user, handleChange, years}) => {
+const ExperiencePage = ({setPage, user, handleChange, years, addField}) => {
 
     return(
 <div className="ExperiencePageContainer">
@@ -12,37 +10,49 @@ const ExperiencePage = ({setPage, user, handleChange, years}) => {
      id='ChevronBackIcon'
       onClick={() => setPage('DataForm')}/>
         <div className='FirstBlock'>
-        <button className='addButton'> + Add Experience </button>
+         <button className='addButton'
+             onClick={() => addField('Experience', {
+                JobTitle: '',
+                companyName: '',
+                companyWebsite: '',
+                startMonth: '',
+                startYear: '',
+                endYear: '',
+             })}> + Add Experience 
+             </button>
         </div>
+        {user.Experience.map((exp, index)=> (
+            <div key={exp.id} >
         <div className='SecondBlockEx'>
         <form>
             <div className='inputField'>
-            <label htmlFor='job'>Job Title</label>
+            <label htmlFor={`job-${index}`}>Job Title</label>
             <input 
             type='text' 
-            name='job'
+            name={`job-${index}`}
              id='job'
-             value= {user.Experience.JobTitle}
-             onChange={(e) => handleChange('Experience','JobTitle', e.target.value)}
+             value= {exp.JobTitle}
+             onChange={(e) => handleChange('Experience', index, 'JobTitle', e.target.value)}
              />
             </div>
             <div className='inputField'>
-            <label htmlFor='company'>Company or Project Name</label>
+            <label htmlFor={`company-${index}`}>Company or Project Name</label>
             <input type='text'
-             name='company'
-              id='company'
-              value={user.Experience.companyName}
-              onChange={(e) => handleChange('Experience','companyName', e.target.value)}
+              name='company'
+              id={`company-${index}`}
+              value={exp.companyName}
+              onChange={(e) => handleChange('Experience', index,'companyName', e.target.value)}
               />
             </div>
             <div className='inputField'>
-            <label htmlFor='website'>Company Website</label>
+            <label htmlFor={`website-${index}`}>Company Website</label>
             <input type='text'
-             name='website'
-              id='website'
-              value ={user.Experience.companyWebsite}
-              onChange ={(e) => handleChange('Experience','companyWebsite', e.target.value)}/>
-            </div>
+               name='website'
+               id={`website-${index}`}
+               value ={exp.companyWebsite}
+               onChange ={(e) => handleChange('Experience', index,'companyWebsite', e.target.value)}
+               />
+              </div>
             </form>
         </div>
        
@@ -50,7 +60,7 @@ const ExperiencePage = ({setPage, user, handleChange, years}) => {
             <form>
         <h5>Start Date</h5>
             <div>
-                <select className='month' onChange={(e)=> handleChange('Experience','startMonth', e.target.value)}>
+                <select className='month' value={exp.startMonth} onChange={(e)=> handleChange('Experience',index,'startMonth', e.target.value)}>
                     <option  value = '' disabled selected>Month</option>
                     <option value='01'>January</option>
                     <option value='02'>Febuary</option>
@@ -66,18 +76,17 @@ const ExperiencePage = ({setPage, user, handleChange, years}) => {
                     <option value='12'>December</option>
                     
                 </select>
-                <select className='year' onChange = {(e)=> handleChange('Experience','startYear', e.target.value)}>
+                <select className='year' value= {exp.startYear} onChange = {(e)=> handleChange('Experience',index, 'startYear', e.target.value)}>
                     <option value=''> Year</option>
                     {years.map((year) => (
                         <option key={year} value={year}>{year}</option>
                     ))}
-
-                </select>
+               </select>
 
             </div>
             <h5>End Date</h5>
-            <div>
-            <select className='month' onChange={(e) => handleChange('Experience','endMonth', e.target.value)}>
+            <div className='margin-bottom-div'>
+            <select className='month' value={exp.endMonth} onChange={(e) => handleChange('Experience',index,'endMonth', e.target.value)}>
             <option  value = '' disabled selected>Month</option>
                     <option value='01'>January</option>
                     <option value='02'>Febuary</option>
@@ -93,18 +102,19 @@ const ExperiencePage = ({setPage, user, handleChange, years}) => {
                     <option value='12'>December</option>
                     
                 </select>
-                <select className='year' onChange ={(e) => handleChange('Experience', 'endYear', e.target.value)}>
+                <select className='year' value={exp.endYear} onChange ={(e) => handleChange('Experience',index,  'endYear', e.target.value)}>
                     <option value=''> Year</option>
                     {years.map((year) => (
                         <option key={year} value={year}>{year}</option>
                     ))}
 
                 </select>
-     
-            </div>
+              </div>
             </form>
         </div>
 </div>
+    ))}
+    </div>
     )
 }
 

@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { useState } from 'react';
 const LanguagesPage = ({user, setPage, handleChange}) =>{
     return(
         <div className='LanguagesPageContainer'>

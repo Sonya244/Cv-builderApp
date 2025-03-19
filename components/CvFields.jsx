@@ -1,46 +1,68 @@
 const CvFields = ({user}) => {
-return(
-
+  return(
     <div className="CvFields">
         <div className="Field Experience">
-     <h3>Experience</h3>
-     <hr />
-     <div className="divClust">
-      <p>{user.Experience.JobTitle}</p>
-      <span>{user.Experience.startMonth}/{user.Experience.startYear} - {user.Experience.endMonth}/{user.Experience.endYear}</span>
+          <h3>Experience</h3>
+           <hr />
+           {user.Experience.map((exp, index) => (
+            <div key={index}>
+             <div className="divClust">
+              <p>{exp.JobTitle}</p>
+      <span>{exp.startMonth || 'MM'}/{exp.startYear || 'YYYY'} - {exp.endMonth || 'MM'}/{exp.endYear || 'YYYY'}</span>
       </div>
       <div className="divClustTwo">
-      <p>{user.Experience.companyName}</p>
-      <a target='_blank' href ={user.Experience.companyWebsite.startsWith('http')? user.Experience.companyWebsite : `https://${user.Experience.companyWebsite}`} rel="noopener noreferrer">{user.Experience.companyWebsite}</a>
+      <p>{exp.companyName}</p>
+         {exp.companyWebsite && (<a target='_blank' href ={exp.companyWebsite.startsWith('http')? exp.companyWebsite : `https://${exp.companyWebsite}`}
+     rel="noopener noreferrer">
+         {exp.companyWebsite}
+        </a>
+     )}
+     </div>
       </div>
-      </div>
+           ))}
+           </div>
+        
+       
       <div className="Field">
      <h3>Education</h3>
      <hr />
-     <div className='divClust'>
-      <p>{user.Education.University}</p>
-      <span>{user.Education.startMonth}/{user.Education.startYear} - {user.Education.endMonth}/{user.Education.endYear}</span>
+     {user.Education.map((edu, index) =>(
+         <div key={index}>
+           <div className='divClust'>
+             <p>{edu.University}</p>
+            <span>
+                {edu.startMonth || 'MM'}/{edu.startYear || 'YYYY'} - {edu.endMonth || 'MM'}/{edu.endYear || 'YYYY'}
+                </span>
       </div>
-      <p>{user.Education.Degree}</p>
+      <p>{edu.Degree}</p>
       </div>
-      <div className="Field">
-     <h3>Skills</h3>
-     <hr />
-     <div className='divClust'>
-      <p>{user.Skills.SkillsName}</p>
-      <span>{user.Skills.Proficiency}</span>
-      </div>
-      </div>
+     ))}
+     </div>
+    
+                <div className="Field">
+                    <h3>Skills</h3>
+                    <hr />
+                    {user.Skills.map((skill, index) => (
+                        <div className="divClust" key={index}>
+                            <p>{skill.SkillsName}</p>
+                            <span>{skill.Proficiency}</span>
+                        </div>
+                    ))}
+                </div>
+            
+   
       <div className="Field">
      <h3>Languages</h3>
      <hr />
-     <div className="divClust">
-      <p>{user.Languages.Language}</p>
-      <span>{user.Languages.Proficiency}</span>
+     {user.Languages.map((lang, index) => (
+       <div className="divClust" key={index}>
+          <p>{lang.Language}</p>
+          <span>{lang.Proficiency}</span>
+       </div>
+     ))}
       </div>
-      </div>
+    
     </div>
-
-)
-}
+);
+};
 export default CvFields
