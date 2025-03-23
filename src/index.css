@@ -126,6 +126,7 @@ width: 50%;
 height: 100vh;
 background-color: white;
 margin-left: 20px;
+overflow: scroll;
 }
 .DataList {
   margin-top: 20px;
@@ -175,7 +176,9 @@ margin-left: 20px;
 .LanguagesPageContainer{
   font-family: "Open Sans", sans-serif;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  background: white;
+  
   /*padding: 10px;*/
   /*display: none; */
 }
@@ -204,6 +207,10 @@ margin-left: 20px;
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+.ExperienceEntry{
+  height: 100vh;
+  background-color: white;
 }
  form{
   display: flex;
@@ -285,6 +292,7 @@ input {
   display: flex;
   justify-content: space-between;
 }
+
 .SecondBlockSkill,
 .SecondBlockLang{
   display: flex;
@@ -302,12 +310,12 @@ input {
   font-weight: 350;
   margin-bottom: 7px;
   letter-spacing: 0.19px;
-  color: #575b61;
+  color: rgb(156 163 175);
   text-transform: uppercase;
   font-family: "Open Sans", sans-serif;
-  
-  
+
 }
+
 select.month{
   width: 60%;
   height: 33px;
@@ -328,11 +336,39 @@ select.year{
 
 select {
   padding-left: 10px;
-  color: gray;
+   color: rgb(156 163 175);;
   font-size: 0.90rem;
   letter-spacing: 0.28px;
   background-color: #e8e9eb;
   outline: none;
   border: none;
   height: 33px;
+}
+
+.margin-bottom-div{
+  margin-bottom: 50px;
+}
+@media only screen and (max-width: 600px){
+  .Container{
+    display: flex;
+    flex-direction: column;
+  }
+  .ContainerCv, .ContainerDataForm{
+    width: 100%;
+  }
+  .ContainerDataForm{
+    margin-top: 30px;}
+
+    .PersonalPageContainer h3,
+    .ExperiencePageContainer h3,
+    .EducationPageContainer h3,
+     .SkillsPageContainer h3,
+    .LanguagesPageContainer h3{
+        position: relative;
+      }
+      #ChevronBackIcon {
+        position: absolute;
+        top: 93%;
+        left: 7%;
+      }
 }

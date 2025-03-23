@@ -24,11 +24,9 @@ function App() {
       City: 'Amsterdam',
       Country: 'Netherlands'
     },
-    Experience: [],
-    Education: [],
-    Skills: [],
-    Languages: []
-  /*Experience: {
+  
+  Experience: [
+     {
     JobTitle: '',
     companyName : '',
     companyWebsite : '',
@@ -36,23 +34,31 @@ function App() {
     endMonth: '',
     startYear: '',
     endYear: ''
-  },
-  Education: {
+     }
+    ]
+  ,
+  Education: [
+    {
     University: '',
     Degree: '',
     startMonth: '',
     endMonth:'',
     startYear: '',
     endYear: ''
-  },
-  Skills: {
-SkillsName: '',
-Proficiency: ''
-  },
-  Languages: {
-  Language: '',
-  Proficiency: ''
-  }*/
+  }
+],
+Skills: [
+  {
+   SkillsName: '',
+   Proficiency: ''
+  }
+],
+  Languages: [
+    {
+    Language: '',
+    Proficiency: ''
+  }
+]
 })
 const currentYear = new Date().getFullYear();//get current date/get exact year
 const years = Array.from({ length: 20}, (_, i) => currentYear - i);//new array create, mapping in reverse
