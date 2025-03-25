@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 const LanguagesPage = ({user, setPage, handleChange}) =>{
     return(
         <div className='LanguagesPageContainer'>
@@ -12,6 +13,12 @@ onClick={() =>setPage('DataForm')}
 <div className='FirstBlock'>
 <button className='addButton'> + Add </button>
 </div>
+  <span className='delete'>
+             Delete
+                <FontAwesomeIcon
+                icon={faTrash}
+                id='trashIcon'
+             /></span>
 <div className='SecondBlockLang'>
     <div className='inputField'>
     <label htmlFor='language'>Language</label>

@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 const ExperiencePage = ({setPage, user, handleChange, years, addField}) => {
 
     return(
@@ -20,6 +21,12 @@ const ExperiencePage = ({setPage, user, handleChange, years, addField}) => {
                 endYear: '',
              })}> + Add Experience 
              </button>
+             <span className='delete'>
+             Delete
+                <FontAwesomeIcon
+                icon={faTrash}
+                id='trashIcon'
+             /></span>
         </div>
         {user.Experience.map((exp, index)=> (
             <div key={exp.id} >

@@ -178,7 +178,7 @@ overflow: scroll;
   width: 100%;
   height: 100vh;
   background: white;
-  
+  margin: 0 20px;
   /*padding: 10px;*/
   /*display: none; */
 }
@@ -281,10 +281,11 @@ input {
   font-size: 1.1rem;
   letter-spacing: 0.20px;
   padding: 13px;
+  position: relative;
 }
 .SecondBlockEx,
 .SecondBlockEd{
-  margin-top: 40px;
+  margin-top: 55px;
 }
 .ThirdBlockEx div,
 .ThirdBlockEd div
@@ -347,6 +348,21 @@ select {
 
 .margin-bottom-div{
   margin-bottom: 50px;
+}
+#trashIcon{
+  margin-left: 7px;
+  font-size: 1rem;
+  
+}
+.delete{
+  position: absolute;
+  right: 3.8%;
+  top: 20%;
+  font-size: 12px;
+  letter-spacing: 0.29px;
+  color: rgba(156, 163, 175, 0.6);
+  font-family: "Open Sans", sans-serif;
+  
 }
 @media only screen and (max-width: 600px){
   .Container{

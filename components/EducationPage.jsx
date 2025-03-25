@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 const EducationPage = ({user, setPage, handleChange, years, addField}) =>{
     return(
       <div className='EducationPageContainer'>
@@ -18,6 +19,12 @@ onClick={()=> setPage('DataForm')}/>
         startYear: '',
         endYear: ''
      })}>+ Add Education</button>
+  <span className='delete'>
+             Delete
+                <FontAwesomeIcon
+                icon={faTrash}
+                id='trashIcon'
+             /></span>
 </div>
   {user.Education.map((edu, index) => (
     <div key={edu.id}>
