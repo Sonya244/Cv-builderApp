@@ -19,12 +19,13 @@ onClick={()=> setPage('DataForm')}/>
         startYear: '',
         endYear: ''
      })}>+ Add Education</button>
-  <span className='delete'>
+  <div className='delete'>
              Delete
-                <FontAwesomeIcon
-                icon={faTrash}
-                id='trashIcon'
-             /></span>
+             <FontAwesomeIcon
+  icon={faTrash}
+  id='trashIcon'
+  
+/></div>
 </div>
   {user.Education.map((edu, index) => (
     <div key={edu.id}>

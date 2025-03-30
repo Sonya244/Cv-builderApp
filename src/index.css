@@ -299,7 +299,8 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6%
+  gap: 6%;
+  margin-top: 15px;
 }
 .SecondBlockSkill .inputField,
 .SecondBlockLang .inputField{
@@ -355,9 +356,9 @@ select {
   
 }
 .delete{
-  position: absolute;
-  right: 3.8%;
-  top: 20%;
+  margin-top: 13px;
+  align-self: flex-end;
+  margin-right: 26px;
   font-size: 12px;
   letter-spacing: 0.29px;
   color: rgba(156, 163, 175, 0.6);
@@ -387,4 +388,5 @@ select {
         top: 93%;
         left: 7%;
       }
+   
 }

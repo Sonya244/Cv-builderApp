@@ -20,12 +20,12 @@ onClick={() =>setPage('DataForm')}
     startYear: '',
     endYear: '',
  })}> + Add </button>
-   <span className='delete'>
+   <div className='delete'>
              Delete
                 <FontAwesomeIcon
                 icon={faTrash}
                 id='trashIcon'
-             /></span>
+             /></div>
 </div>
 {user.Languages.map((lang, index) => (
     <div key ={lang.id}>

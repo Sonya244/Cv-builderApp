@@ -21,12 +21,12 @@ const ExperiencePage = ({setPage, user, handleChange, years, addField}) => {
                 endYear: '',
              })}> + Add Experience 
              </button>
-             <span className='delete'>
+             <div className='delete'>
              Delete
                 <FontAwesomeIcon
                 icon={faTrash}
                 id='trashIcon'
-             /></span>
+             /></div>
         </div>
         {user.Experience.map((exp, index)=> (
             <div key={exp.id} >
