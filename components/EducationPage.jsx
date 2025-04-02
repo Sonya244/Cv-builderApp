@@ -14,8 +14,8 @@ onClick={()=> setPage('DataForm')}/>
 <div className='FirstBlock'>
     <button className='addButton'
      onClick ={() => addField('Education', {
-        University: '',
-        Degree: '',
+        university: '',
+        degree: '',
         startMonth: '',
         endMonth:'',
         startYear: '',
@@ -39,8 +39,8 @@ onClick={()=> setPage('DataForm')}/>
         <input type='text'
          name={`uni-${index}`} 
          id='uni' 
-         value={edu.University}
-         onChange ={(e) => handleChange('Education' ,index, 'University', e.target.value)}
+         value={edu.university}
+         onChange ={(e) => handleChange('Education' ,index, 'university', e.target.value)}
          />
         </div>
         <div className='inputField'>
@@ -48,8 +48,8 @@ onClick={()=> setPage('DataForm')}/>
             <input type='text'
             name={`degree-${index}`}
             id='degree'
-            value={edu.Degree}
-            onChange ={(e) => handleChange('Education', index,  'Degree', e.target.value)}/>
+            value={edu.degree}
+            onChange ={(e) => handleChange('Education', index,  'degree', e.target.value)}/>
         </div>
         </form>
         <div className='ThirdBlockEd'>

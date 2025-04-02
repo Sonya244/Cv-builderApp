@@ -15,8 +15,8 @@ onClick={() =>setPage('DataForm')}
 <div className='FirstBlock'>
 <button className='addButton'
  onClick={() => addField('Languages', {
-    Language: '',
-    Proficiency: '',
+    language: '',
+    proficiency: '',
  })}> + Add </button>
    <div className='delete'>
              Delete
@@ -34,12 +34,12 @@ onClick={() =>setPage('DataForm')}
             <input type='text'
             name={`language-${index}`}
             id='language'
-            value={lang.Language}
-            onChange={(e)=> handleChange('Languages', index,'Language',  e.target.value)}
+            value={lang.language}
+            onChange={(e)=> handleChange('Languages', index,'language',  e.target.value)}
             />
     </div>
     <div className='inputField'>
-         <select className='proficiency'  value= {lang.Proficiency} onChange={(e)=> handleChange('Languages', index,  'Proficiency', e.target.value)}>
+         <select className='proficiency'  value= {lang.proficiency} onChange={(e)=> handleChange('Languages', index,  'proficiency', e.target.value)}>
             <option value='' disabled>Proficiency</option>
             <option value='Beginner'>Beginner</option>
             <option value='Intermediate'>Intermediate</option>

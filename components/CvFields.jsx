@@ -1,5 +1,5 @@
 const CvFields = ({ user }) => {
-  if (!user) return <p>Loading...</p>; // Prevents error if user is undefined
+  if (!user) return <p>Loading...</p>; 
 
   return (
     <div className="CvFields">
@@ -9,7 +9,7 @@ const CvFields = ({ user }) => {
         {user.Experience?.map((exp, index) => (
           <div key={index}>
             <div className="divClust">
-              <p>{exp.JobTitle}</p>
+              <p>{exp.jobTitle}</p>
               <span>{exp.startMonth || 'MM'}/{exp.startYear || 'YYYY'} - {exp.endMonth || 'MM'}/{exp.endYear || 'YYYY'}</span>
             </div>
             <div className="divClustTwo">
@@ -30,12 +30,12 @@ const CvFields = ({ user }) => {
         {user.Education?.map((edu, index) => (
           <div key={index}>
             <div className='divClust'>
-              <p>{edu.University}</p>
+              <p>{edu.university}</p>
               <span>
                 {edu.startMonth || 'MM'}/{edu.startYear || 'YYYY'} - {edu.endMonth || 'MM'}/{edu.endYear || 'YYYY'}
               </span>
             </div>
-            <p>{edu.Degree}</p>
+            <p>{edu.degree}</p>
           </div>
         ))}
       </div>
@@ -45,8 +45,8 @@ const CvFields = ({ user }) => {
         <hr />
         {user.Skills?.map((skill, index) => (
           <div className="divClust" key={index}>
-            <p>{skill.SkillsName}</p>
-            <span>{skill.Proficiency}</span>
+            <p>{skill.skillsName}</p>
+            <span>{skill.proficiency}</span>
           </div>
         ))}
       </div>
@@ -56,8 +56,8 @@ const CvFields = ({ user }) => {
         <hr />
         {user.Languages?.map((lang, index) => (
           <div className="divClust" key={index}>
-            <p>{lang.Language}</p>
-            <span>{lang.Proficiency}</span>
+            <p>{lang.language}</p>
+            <span>{lang.proficiency}</span>
           </div>
         ))}
       </div>

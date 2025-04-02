@@ -15,7 +15,7 @@ const ExperiencePage = ({setPage, user, handleChange, years, addField, deleteSec
         <div className='FirstBlock'>
          <button className='addButton'
              onClick={() => addField('Experience', {
-                JobTitle: '',
+                jobTitle: '',
                 companyName: '',
                 companyWebsite: '',
                 startMonth: '',
@@ -41,8 +41,8 @@ const ExperiencePage = ({setPage, user, handleChange, years, addField, deleteSec
             type='text' 
             name={`job-${index}`}
              id={`job-${index}`}
-             value= {exp.JobTitle}
-             onChange={(e) => handleChange('Experience', index, 'JobTitle', e.target.value)}
+             value= {exp.jobTitle}
+             onChange={(e) => handleChange('Experience', index, 'jobTitle', e.target.value)}
              />
             </div>
             <div className='inputField'>

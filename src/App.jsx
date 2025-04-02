@@ -12,22 +12,22 @@ import LanguagesPage from '../components/LanguagesPage';
 
 function App() {
   const [user, setUser] = useState({
-    FirstName: 'John',
-    LastName: 'Doe',
-    JobTitle: 'Programmer',
+    firstName: 'John',
+    lastName: 'Doe',
+    jobTitle: 'Programmer',
     contactDetails: {
       phoneNumber: '9999',
-      Email: 'johnnoe@email.com',
+      email: 'johnnoe@email.com',
       webSite: 'johnDoe.com'
     },
     Location: {
-      City: 'Amsterdam',
-      Country: 'Netherlands'
+      city: 'Amsterdam',
+      country: 'Netherlands'
     },
   
   Experience: [
      {
-    JobTitle: '',
+    jobTitle: '',
     companyName : '',
     companyWebsite : '',
     startMonth: '',
@@ -39,8 +39,8 @@ function App() {
   ,
   Education: [
     {
-    University: '',
-    Degree: '',
+    university: '',
+    degree: '',
     startMonth: '',
     endMonth:'',
     startYear: '',
@@ -49,24 +49,24 @@ function App() {
 ],
 Skills: [
   {
-   SkillsName: '',
-   Proficiency: ''
+   skillsName: '',
+   proficiency: ''
   }
 ],
   Languages: [
     {
-    Language: '',
-    Proficiency: ''
+    language: '',
+    proficiency: ''
   }
 ]
 })
-const currentYear = new Date().getFullYear();//get current date/get exact year
-const years = Array.from({ length: 20}, (_, i) => currentYear - i);//new array create, mapping in reverse
+const currentYear = new Date().getFullYear();
+const years = Array.from({ length: 20}, (_, i) => currentYear - i);
 
 const handleChange = (section, index, field, value) => {
   setUser((prevUser) => {
-    const updatedSection = [...prevUser[section]];//copy the array
-    updatedSection[index] = {...updatedSection[index], [field]: value};//ipdate field
+    const updatedSection = [...prevUser[section]];
+    updatedSection[index] = {...updatedSection[index], [field]: value};
     return {...prevUser, [section] : updatedSection}
   })
 }

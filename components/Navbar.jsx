@@ -8,13 +8,13 @@ const Navbar = ({user}) =>{
     return(
 <div className= "NavBar">
     <div className ="Title">
-    <h2>{user.FirstName} {user.LastName}</h2>
-    <p>{user.JobTitle}</p>
+    <h2>{user.firstName} {user.lastName}</h2>
+    <p>{user.jobTitle}</p>
     </div>
     <div  className="Contacts">
         <p><FontAwesomeIcon icon={faPhone} className='Icon'/> {user.contactDetails.phoneNumber}</p>
-        <p><FontAwesomeIcon icon={faEnvelope} className='Icon'/> {user.contactDetails.Email}</p>
-        <p><FontAwesomeIcon icon={faLocationDot} className='Icon'/> {user.Location.City}, {user.Location.Country}</p>
+        <p><FontAwesomeIcon icon={faEnvelope} className='Icon'/> {user.contactDetails.email}</p>
+        <p><FontAwesomeIcon icon={faLocationDot} className='Icon'/> {user.Location.city}, {user.Location.country}</p>
     </div>
 </div>
 )

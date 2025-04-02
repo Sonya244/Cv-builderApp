@@ -16,8 +16,8 @@ const SkillsPage = ({setPage, user, handleChange, addField, deleteSection}) => {
         <button className='addButton'
         onClick ={()=> addField('Skills', {
             
-                SkillsName: '',
-                Proficiency: ''
+                skillsName: '',
+                proficiency: ''
                
         })}> + Add</button>
           <div className='delete'>
@@ -36,13 +36,13 @@ const SkillsPage = ({setPage, user, handleChange, addField, deleteSection}) => {
             <input type='text'
             name={`skillName-${index}`}
             id='skillName'
-            value={skill.SkillsName}
-            onChange={(e)=> handleChange('Skills',index,  'SkillsName', e.target.value)}
+            value={skill.skillsName}
+            onChange={(e)=> handleChange('Skills',index,  'skillsName', e.target.value)}
             />
        
       </div>
     <div className='inputField'>
-         <select className='proficiency' value={skill.Proficiency} onChange={(e)=> handleChange('Skills',index, 'Proficiency', e.target.value)}>
+         <select className='proficiency' value={skill.proficiency} onChange={(e)=> handleChange('Skills',index, 'proficiency', e.target.value)}>
             <option value='' disabled>Proficiency</option>
             <option value='Basic'>Basic</option>
             <option value='Intermediate'>Intermediate</option>

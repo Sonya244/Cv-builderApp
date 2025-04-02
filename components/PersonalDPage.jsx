@@ -13,15 +13,15 @@ const PersonalDPage = ({user , setUser, setPage}) => {
                 <form>
                    <div className='inputField'>
                     <label htmlFor ='name' > First Name </label>
-                    <input type ='text' name ='name' id='name' value={user.FirstName} onChange={e => setUser({...user, FirstName: e.target.value})}/>
+                    <input type ='text' name ='name' id='name' value={user.firstName} onChange={e => setUser({...user, firstName: e.target.value})}/>
                     </div>
                     <div className='inputField'>
                    <label htmlFor ='last-name'>Last Name</label>
-                   <input type ='text' name ='last-name' id='last-name' value={user.LastName} onChange={e => setUser({...user, LastName: e.target.value})}/>
+                   <input type ='text' name ='last-name' id='last-name' value={user.lastName} onChange={e => setUser({...user, lastName: e.target.value})}/>
                    </div>
                    <div className='inputField'>
                    <label htmlFor ='job-title'>Job Title</label>
-                   <input type ='text' name ='job-title' id='job-title' value={user.JobTitle} onChange={e => setUser({...user, JobTitle: e.target.value})}/>
+                   <input type ='text' name ='job-title' id='job-title' value={user.jobTitle} onChange={e => setUser({...user, jobTitle: e.target.value})}/>
                    </div>
                 </form>
             </div>
@@ -34,7 +34,7 @@ const PersonalDPage = ({user , setUser, setPage}) => {
                     </div>
                     <div className='inputField'>
                         <label htmlFor='email'>Email Address</label>
-                        <input type='email' name='email' id='email' value ={user.contactDetails.Email} onChange = {e => setUser({...user, contactDetails:{...user.contactDetails, Email : e.target.value}})}></input>
+                        <input type='email' name='email' id='email' value ={user.contactDetails.email} onChange = {e => setUser({...user, contactDetails:{...user.contactDetails, email : e.target.value}})}></input>
                     </div>
                     <div className='inputField'>
                         <label htmlFor='website'>Personal Website</label>
@@ -47,11 +47,11 @@ const PersonalDPage = ({user , setUser, setPage}) => {
                 <div className = 'formCluster'>
                 <div className='inputField'>
                 <label htmlFor='city'>City</label>
-                <input type='text' name ='city' id='city' value ={user.Location.City} onChange={e => setUser({...user, Location:{...user.Location, City: e.target.value}})}></input>
+                <input type='text' name ='city' id='city' value ={user.Location.city} onChange={e => setUser({...user, Location:{...user.Location, city: e.target.value}})}></input>
                 </div>
                 <div className='inputField'>
                 <label htmlFor='country'>Country</label>
-                <input type='text' name='country' id='country' value ={user.Location.Country} onChange={e=> setUser({...user, Location:{...user.Location, Country: e.target.value}})}></input>
+                <input type='text' name='country' id='country' value ={user.Location.country} onChange={e=> setUser({...user, Location:{...user.Location, country: e.target.value}})}></input>
                 </div>
                 </div>
             </div>
