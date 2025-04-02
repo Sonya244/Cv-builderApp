@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-const EducationPage = ({user, setPage, handleChange, years, addField}) =>{
+const EducationPage = ({user, setPage, setUser,  handleChange, years, addField, deleteSection}) =>{
     return(
       <div className='EducationPageContainer'>
 <h3>Education</h3>
@@ -24,11 +24,12 @@ onClick={()=> setPage('DataForm')}/>
              <FontAwesomeIcon
   icon={faTrash}
   id='trashIcon'
+  onClick = {() => deleteSection('Education')}
   
 /></div>
 </div>
-  {user.Education.map((edu, index) => (
-    <div key={edu.id}>
+  {user?.Education?.map((edu, index) => (
+    <div key={edu.id || index}>
 <div className='SecondBlockEd'>
     <form>
         <div className='inputField'>
@@ -54,22 +55,22 @@ onClick={()=> setPage('DataForm')}/>
             <h5>Start Date</h5>
             <div>
             <select className='month' value={edu.startMonth} onChange={(e) => handleChange('Education',index ,'startMonth', e.target.value)}>
-                <option value= '' disabled selected>Month</option>
+                <option value= '' disabled>Month</option>
                 <option value = '01'>January</option>
-                <option value = '01'>Febuary</option>
-                <option value = '01'>March</option>
-                <option value = '01'>April</option>
-                <option value = '01'>May</option>
-                <option value = '01'>June</option>
-                <option value = '01'>July</option>
-                <option value = '01'>August</option>
-                <option value = '01'>September</option>
-                <option value = '01'>October</option>
-                <option value = '01'>November</option>
-                <option value = '01'>December</option>
+                <option value = '02'>February</option>
+                <option value = '03'>March</option>
+                <option value = '04'>April</option>
+                <option value = '05'>May</option>
+                <option value = '06'>June</option>
+                <option value = '07'>July</option>
+                <option value = '08'>August</option>
+                <option value = '09'>September</option>
+                <option value = '10'>October</option>
+                <option value = '11'>November</option>
+                <option value = '12'>December</option>
             </select>
             <select className='year' value={edu.startYear} onChange= {(e) => handleChange('Education', index,'startYear', e.target.value)}>
-                <option value='' disabled selected>Year</option>
+                <option value='' disabled>Year</option>
                 {years.map((year) =>(
                     <option value= {year} key ={year}>{year}</option>
                 )) }
@@ -78,22 +79,22 @@ onClick={()=> setPage('DataForm')}/>
             <h5>End Date</h5>
             <div className='margin-bottom-div'>
                 <select className='month' value={edu.endMonth} onChange ={(e)=> handleChange('Education', index, 'endMonth', e.target.value)}>
-                <option value= '' disabled selected>Month</option>
+                <option value= '' disabled>Month</option>
                 <option value = '01'>January</option>
-                <option value = '01'>Febuary</option>
-                <option value = '01'>March</option>
-                <option value = '01'>April</option>
-                <option value = '01'>May</option>
-                <option value = '01'>June</option>
-                <option value = '01'>July</option>
-                <option value = '01'>August</option>
-                <option value = '01'>September</option>
-                <option value = '01'>October</option>
-                <option value = '01'>November</option>
-                <option value = '01'>December</option>
+                <option value = '02'>Febuary</option>
+                <option value = '03'>March</option>
+                <option value = '04'>April</option>
+                <option value = '05'>May</option>
+                <option value = '06'>June</option>
+                <option value = '07'>July</option>
+                <option value = '08'>August</option>
+                <option value = '09'>September</option>
+                <option value = '10'>October</option>
+                <option value = '11'>November</option>
+                <option value = '12'>December</option>
                 </select>
                 <select className='year' value={edu.endYear} onChange={(e)=> handleChange('Education', index, 'endYear', e.target.value)}>
-                    <option value='' disabled selected> Year</option>
+                    <option value='' disabled> Year</option>
                     {years.map((year) => (
                         <option value={year} key={year}>{year}</option>
                     ))}

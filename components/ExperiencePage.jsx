@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-const ExperiencePage = ({setPage, user, handleChange, years, addField}) => {
+const ExperiencePage = ({setPage, user, handleChange, years, addField, deleteSection}) => {
 
     return(
 <div className="ExperiencePageContainer">
@@ -26,10 +26,11 @@ const ExperiencePage = ({setPage, user, handleChange, years, addField}) => {
                 <FontAwesomeIcon
                 icon={faTrash}
                 id='trashIcon'
+                onClick = {() => deleteSection('Experience')}
              /></div>
         </div>
-        {user.Experience.map((exp, index)=> (
-            <div key={exp.id} >
+        {user.Experience?.map((exp, index)=> (
+            <div key={exp.id || index} >
         <div className='SecondBlockEx'>
         <form>
             <div className='inputField'>
@@ -37,7 +38,7 @@ const ExperiencePage = ({setPage, user, handleChange, years, addField}) => {
             <input 
             type='text' 
             name={`job-${index}`}
-             id='job'
+             id={`job-${index}`}
              value= {exp.JobTitle}
              onChange={(e) => handleChange('Experience', index, 'JobTitle', e.target.value)}
              />
@@ -67,8 +68,8 @@ const ExperiencePage = ({setPage, user, handleChange, years, addField}) => {
             <form>
         <h5>Start Date</h5>
             <div>
-                <select className='month' value={exp.startMonth} onChange={(e)=> handleChange('Experience',index,'startMonth', e.target.value)}>
-                    <option  value = '' disabled selected>Month</option>
+                <select className='month' value={exp.startMonth || ''} onChange={(e)=> handleChange('Experience',index,'startMonth', e.target.value)}>
+                    <option  value = '' disabled>Month</option>
                     <option value='01'>January</option>
                     <option value='02'>Febuary</option>
                     <option value='03'>March</option>
@@ -83,7 +84,7 @@ const ExperiencePage = ({setPage, user, handleChange, years, addField}) => {
                     <option value='12'>December</option>
                     
                 </select>
-                <select className='year' value= {exp.startYear} onChange = {(e)=> handleChange('Experience',index, 'startYear', e.target.value)}>
+                <select className='year' value= {exp.startYear || ''} onChange = {(e)=> handleChange('Experience',index, 'startYear', e.target.value)}>
                     <option value=''> Year</option>
                     {years.map((year) => (
                         <option key={year} value={year}>{year}</option>
@@ -93,8 +94,8 @@ const ExperiencePage = ({setPage, user, handleChange, years, addField}) => {
             </div>
             <h5>End Date</h5>
             <div className='margin-bottom-div'>
-            <select className='month' value={exp.endMonth} onChange={(e) => handleChange('Experience',index,'endMonth', e.target.value)}>
-            <option  value = '' disabled selected>Month</option>
+            <select className='month' value={exp.endMonth || ''} onChange={(e) => handleChange('Experience',index,'endMonth', e.target.value)}>
+            <option  value = '' disabled>Month</option>
                     <option value='01'>January</option>
                     <option value='02'>Febuary</option>
                     <option value='03'>Mach</option>
@@ -109,7 +110,7 @@ const ExperiencePage = ({setPage, user, handleChange, years, addField}) => {
                     <option value='12'>December</option>
                     
                 </select>
-                <select className='year' value={exp.endYear} onChange ={(e) => handleChange('Experience',index,  'endYear', e.target.value)}>
+                <select className='year' value={exp.endYear || ''} onChange ={(e) => handleChange('Experience',index,  'endYear', e.target.value)}>
                     <option value=''> Year</option>
                     {years.map((year) => (
                         <option key={year} value={year}>{year}</option>

@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-const SkillsPage = ({setPage, user, handleChange, addField}) => {
+const SkillsPage = ({setPage, user, handleChange, addField, deleteSection}) => {
     return(
 <div className='SkillsPageContainer'>
     <h3>Skills</h3>
@@ -23,6 +23,7 @@ const SkillsPage = ({setPage, user, handleChange, addField}) => {
                         <FontAwesomeIcon
                         icon={faTrash}
                         id='trashIcon'
+                        onClick={() => deleteSection('Skills')}
                      /></div>
     </div>
     {user.Skills.map((skill, index)=>(

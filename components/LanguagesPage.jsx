@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-const LanguagesPage = ({user, setPage, handleChange, addField}) =>{
+const LanguagesPage = ({user, setPage, handleChange, addField, deleteSection}) =>{
     return(
         <div className='LanguagesPageContainer'>
 <h3>Languages</h3>
@@ -12,19 +12,16 @@ onClick={() =>setPage('DataForm')}
 />
 <div className='FirstBlock'>
 <button className='addButton'
- onClick={() => addField('Experience', {
-    JobTitle: '',
-    companyName: '',
-    companyWebsite: '',
-    startMonth: '',
-    startYear: '',
-    endYear: '',
+ onClick={() => addField('Languages', {
+    Language: '',
+    Proficiency: '',
  })}> + Add </button>
    <div className='delete'>
              Delete
                 <FontAwesomeIcon
                 icon={faTrash}
                 id='trashIcon'
+                onClick= {() => deleteSection('Languages')}
              /></div>
 </div>
 {user.Languages.map((lang, index) => (
