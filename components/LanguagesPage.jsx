@@ -4,12 +4,14 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 const LanguagesPage = ({user, setPage, handleChange, addField, deleteSection}) =>{
     return(
         <div className='LanguagesPageContainer'>
+         <div className='topBar'>
 <h3>Languages</h3>
 <FontAwesomeIcon
 icon={faChevronLeft}
 id='ChevronBackIcon'
 onClick={() =>setPage('DataForm')}
 />
+</div>
 <div className='FirstBlock'>
 <button className='addButton'
  onClick={() => addField('Languages', {
@@ -38,7 +40,7 @@ onClick={() =>setPage('DataForm')}
     </div>
     <div className='inputField'>
          <select className='proficiency'  value= {lang.Proficiency} onChange={(e)=> handleChange('Languages', index,  'Proficiency', e.target.value)}>
-            <option value='' disabled selected>Proficiency</option>
+            <option value='' disabled>Proficiency</option>
             <option value='Beginner'>Beginner</option>
             <option value='Intermediate'>Intermediate</option>
             <option value='Fluent'>Fluent</option>

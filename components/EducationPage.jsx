@@ -4,11 +4,13 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 const EducationPage = ({user, setPage, setUser,  handleChange, years, addField, deleteSection}) =>{
     return(
       <div className='EducationPageContainer'>
+        <div className='topBar'>
 <h3>Education</h3>
 <FontAwesomeIcon 
 id='ChevronBackIcon'
 icon ={faChevronLeft}
 onClick={()=> setPage('DataForm')}/>
+</div>
 <div className='FirstBlock'>
     <button className='addButton'
      onClick ={() => addField('Education', {

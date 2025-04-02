@@ -5,11 +5,13 @@ const ExperiencePage = ({setPage, user, handleChange, years, addField, deleteSec
 
     return(
 <div className="ExperiencePageContainer">
+    <div className='topBar'>
     <h3>Experience</h3>
     <FontAwesomeIcon
      icon={faChevronLeft} 
      id='ChevronBackIcon'
       onClick={() => setPage('DataForm')}/>
+      </div>
         <div className='FirstBlock'>
          <button className='addButton'
              onClick={() => addField('Experience', {

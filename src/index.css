@@ -376,17 +376,27 @@ select {
   .ContainerDataForm{
     margin-top: 30px;}
 
-    .PersonalPageContainer h3,
-    .ExperiencePageContainer h3,
-    .EducationPageContainer h3,
-     .SkillsPageContainer h3,
-    .LanguagesPageContainer h3{
-        position: relative;
-      }
-      #ChevronBackIcon {
-        position: absolute;
-        top: 93%;
-        left: 7%;
-      }
-   
+
+   .topBar{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    margin-top: 10px;
+   }
+   .topBar h3{
+    width: 100%;
+    margin-left: 20px;
+    padding: 0;
+    
+   }
+
+   #ChevronBackIcon{
+    position: static;
+    
+   }
+   .FirstBlock{
+    margin-top: 10px;
+   }
 }

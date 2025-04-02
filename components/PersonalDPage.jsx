@@ -5,8 +5,10 @@ const PersonalDPage = ({user , setUser, setPage}) => {
   
     return (
         <div className="PersonalPageContainer">
+            <div className='topBar'>
             <h3>Personal Details</h3>
             <FontAwesomeIcon icon={faChevronLeft} id='ChevronBackIcon' onClick={() => setPage('DataForm')}/>
+                </div>
             <div className="FirstBlock">
                 <form>
                    <div className='inputField'>

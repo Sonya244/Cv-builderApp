@@ -71,6 +71,7 @@ const handleChange = (section, index, field, value) => {
   })
 }
 
+
 const addField = (section, newField) =>{
   setUser((prevUser) => ({
     ...prevUser,
@@ -78,15 +79,21 @@ const addField = (section, newField) =>{
   })
 );
 }
+const deleteSection = (section) => {
+ setUser((prevUser) => ({
+    ...prevUser, 
+   [section]: [],
+ }));
+}
 
     const [ page, setPage] = useState('DataForm');
     const pages = {
       DataForm: <DataForm setPage={setPage} />,
       PersonalDPage: <PersonalDPage user ={user} setUser={setUser} setPage={setPage} />,
-      ExperiencePage: <ExperiencePage  user ={user} setUser ={setUser} setPage={setPage} handleChange={handleChange} years={years} addField={addField} />,
-      EducationPage: <EducationPage user ={user} setUser ={setUser} setPage={setPage} handleChange={handleChange} years= {years} addField={addField} />,
-      SkillsPage: <SkillsPage user ={user} setUser= {setUser} setPage={setPage} handleChange={handleChange} addField={addField} />,
-      LanguagesPage: <LanguagesPage user={user} setUser= {setUser} setPage={setPage} handleChange={handleChange} addField={addField} />
+      ExperiencePage: <ExperiencePage  user ={user} setUser ={setUser} setPage={setPage} handleChange={handleChange} years={years} addField={addField} deleteSection={deleteSection}/>,
+      EducationPage: <EducationPage user ={user} setUser ={setUser} setPage={setPage} handleChange={handleChange} years= {years} addField={addField} deleteSection={deleteSection}/>,
+      SkillsPage: <SkillsPage user ={user} setUser= {setUser} setPage={setPage} handleChange={handleChange} addField={addField} deleteSection={deleteSection}/>,
+      LanguagesPage: <LanguagesPage user={user} setUser= {setUser} setPage={setPage} handleChange={handleChange} addField={addField} deleteSection={deleteSection}/>
     }
   
   return(
