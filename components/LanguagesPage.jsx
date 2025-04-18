@@ -18,16 +18,17 @@ onClick={() =>setPage('DataForm')}
     language: '',
     proficiency: '',
  })}> + Add </button>
-   <div className='delete'>
+
+</div>
+{user.Languages.map((lang, index) => (
+    <div key ={lang.id}>
+      <div className='delete'>
              Delete
                 <FontAwesomeIcon
                 icon={faTrash}
                 id='trashIcon'
-                onClick= {() => deleteSection('Languages')}
+                onClick= {() => deleteSection('Languages', lang.id)}
              /></div>
-</div>
-{user.Languages.map((lang, index) => (
-    <div key ={lang.id}>
 <div className='SecondBlockLang'>
     <div className='inputField'>
     <label htmlFor={`language-${index}`}>Language</label>

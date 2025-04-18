@@ -23,17 +23,19 @@ const ExperiencePage = ({setPage, user, handleChange, years, addField, deleteSec
                 endYear: '',
              })}> + Add Experience 
              </button>
-             <div className='delete'>
+        
+        </div>
+        {user.Experience?.map((exp, index)=> (
+            <div key={exp.id || index} >
+                    <div className='delete'>
              Delete
                 <FontAwesomeIcon
                 icon={faTrash}
                 id='trashIcon'
-                onClick = {() => deleteSection('Experience')}
+                onClick = {() => deleteSection('Experience', exp.id)}
              /></div>
-        </div>
-        {user.Experience?.map((exp, index)=> (
-            <div key={exp.id || index} >
         <div className='SecondBlockEx'>
+    
         <form>
             <div className='inputField'>
             <label htmlFor={`job-${index}`}>Job Title</label>
@@ -121,6 +123,7 @@ const ExperiencePage = ({setPage, user, handleChange, years, addField, deleteSec
                 </select>
               </div>
             </form>
+            <hr></hr>
         </div>
 </div>
     ))}

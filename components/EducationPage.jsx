@@ -21,18 +21,19 @@ onClick={()=> setPage('DataForm')}/>
         startYear: '',
         endYear: ''
      })}>+ Add Education</button>
-  <div className='delete'>
-             Delete
-             <FontAwesomeIcon
-  icon={faTrash}
-  id='trashIcon'
-  onClick = {() => deleteSection('Education')}
-  
-/></div>
+
 </div>
   {user?.Education?.map((edu, index) => (
     <div key={edu.id || index}>
 <div className='SecondBlockEd'>
+<div className='delete'>
+             Delete
+             <FontAwesomeIcon
+  icon={faTrash}
+  id='trashIcon'
+  onClick = {() => deleteSection('Education', edu.id)}
+  
+/></div>
     <form>
         <div className='inputField'>
         <label htmlFor={`uni-${index}`}>University/School</label>
@@ -103,6 +104,7 @@ onClick={()=> setPage('DataForm')}/>
                 </select>
               </div>
             </form>
+            <hr></hr>
         </div>  
     </div>
 

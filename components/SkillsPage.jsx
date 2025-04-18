@@ -20,17 +20,19 @@ const SkillsPage = ({setPage, user, handleChange, addField, deleteSection}) => {
                 proficiency: ''
                
         })}> + Add</button>
-          <div className='delete'>
-                     Delete
-                        <FontAwesomeIcon
-                        icon={faTrash}
-                        id='trashIcon'
-                        onClick={() => deleteSection('Skills')}
-                     /></div>
+        
     </div>
     {user.Skills.map((skill, index)=>(
         <div key={skill.id}>
+               <div className='delete'>
+         Delete
+                        <FontAwesomeIcon
+                        icon={faTrash}
+                        id='trashIcon'
+                        onClick={() => deleteSection('Skills', skill.id)}
+                     /></div>
     <div className='SecondBlockSkill'>
+ 
      <div className='inputField'>
       <label htmlFor={`skilllName-${index}`}>Skill Name</label>
             <input type='text'
@@ -51,7 +53,6 @@ const SkillsPage = ({setPage, user, handleChange, addField, deleteSection}) => {
          </select>
         </div>     
     </div>
-   
 </div>
     ))}
     </div>

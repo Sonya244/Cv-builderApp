@@ -9,7 +9,7 @@ import SkillsPage from '../components/SkillsPage';
 import LanguagesPage from '../components/LanguagesPage';
 
 
-
+ 
 function App() {
   const [user, setUser] = useState({
     firstName: 'John',
@@ -60,6 +60,7 @@ Skills: [
   }
 ]
 })
+
 const currentYear = new Date().getFullYear();
 const years = Array.from({ length: 20}, (_, i) => currentYear - i);
 
@@ -70,8 +71,6 @@ const handleChange = (section, index, field, value) => {
     return {...prevUser, [section] : updatedSection}
   })
 }
-
-
 const addField = (section, newField) =>{
   setUser((prevUser) => ({
     ...prevUser,
@@ -79,11 +78,15 @@ const addField = (section, newField) =>{
   })
 );
 }
-const deleteSection = (section) => {
- setUser((prevUser) => ({
+const deleteSection = (section, id) => {
+ setUser((prevUser) => {
+  const updatedSection = prevUser[section].filter(item => item.id !== id);
+  return {
     ...prevUser, 
-   [section]: [],
- }));
+   [section]: updatedSection,
+ }
+}
+);
 }
 
     const [ page, setPage] = useState('DataForm');

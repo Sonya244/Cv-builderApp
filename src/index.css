@@ -285,7 +285,7 @@ input {
 }
 .SecondBlockEx,
 .SecondBlockEd{
-  margin-top: 55px;
+  margin-top: 25px;
 }
 .ThirdBlockEx div,
 .ThirdBlockEd div
@@ -300,7 +300,7 @@ input {
   align-items: center;
   justify-content: center;
   gap: 6%;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 .SecondBlockSkill .inputField,
 .SecondBlockLang .inputField{
@@ -357,13 +357,20 @@ select {
 }
 .delete{
   margin-top: 13px;
-  align-self: flex-end;
+  display: flex;
   margin-right: 26px;
+justify-content: flex-end;
+align-items: center;
   font-size: 12px;
   letter-spacing: 0.29px;
   color: rgba(156, 163, 175, 0.6);
   font-family: "Open Sans", sans-serif;
   
+}
+hr{
+  border: 0.6px solid #d1d1d3;
+  align-items: center;
+  width: 91%;
 }
 @media only screen and (max-width: 600px){
   .Container{
