@@ -1,8 +1,17 @@
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import DataSelect from '../components/DataSelect';
-const ExperiencePage = ({ setPage, user, handleChange, years, addField, deleteSection }) => {
+import DataSelect from './DataSelect';
+import { PageProps } from './types';
+
+const ExperiencePage: React.FC<PageProps> = ({
+    setPage,
+    user,
+    handleChange,
+    years,
+    addField,
+    deleteSection }) => {
 
     return (
         <div className="ExperiencePageContainer">
@@ -11,11 +20,11 @@ const ExperiencePage = ({ setPage, user, handleChange, years, addField, deleteSe
                 <FontAwesomeIcon
                     icon={faChevronLeft}
                     id='ChevronBackIcon'
-                    onClick={() => setPage('DataForm')} />
+                    onClick={() => setPage?.('DataForm')} />
             </div>
             <div className='FirstBlock'>
                 <button className='addButton'
-                    onClick={() => addField('Experience', {
+                    onClick={() => addField?.('Experience', {
                         jobTitle: '',
                         companyName: '',
                         companyWebsite: '',
@@ -27,13 +36,13 @@ const ExperiencePage = ({ setPage, user, handleChange, years, addField, deleteSe
 
             </div>
             {user.Experience?.map((exp, index) => (
-                <div key={exp.id || index} >
+                <div key={ index} >
                     <div className='delete'>
                         Delete
                         <FontAwesomeIcon
                             icon={faTrash}
                             id='trashIcon'
-                            onClick={() => deleteSection('Experience', exp.id)}
+                            onClick={() => deleteSection?.('Experience', index)}
                         /></div>
                     <div className='SecondBlockEx'>
 
@@ -45,7 +54,7 @@ const ExperiencePage = ({ setPage, user, handleChange, years, addField, deleteSe
                                     name={`job-${index}`}
                                     id={`job-${index}`}
                                     value={exp.jobTitle}
-                                    onChange={(e) => handleChange('Experience', index, 'jobTitle', e.target.value)}
+                                    onChange={(e) => handleChange?.('Experience', index, 'jobTitle', e.target.value)}
                                 />
                             </div>
                             <div className='inputField'>
@@ -54,7 +63,7 @@ const ExperiencePage = ({ setPage, user, handleChange, years, addField, deleteSe
                                     name='company'
                                     id={`company-${index}`}
                                     value={exp.companyName}
-                                    onChange={(e) => handleChange('Experience', index, 'companyName', e.target.value)}
+                                    onChange={(e) => handleChange?.('Experience', index, 'companyName', e.target.value)}
                                 />
                             </div>
                             <div className='inputField'>
@@ -63,7 +72,7 @@ const ExperiencePage = ({ setPage, user, handleChange, years, addField, deleteSe
                                     name='website'
                                     id={`website-${index}`}
                                     value={exp.companyWebsite}
-                                    onChange={(e) => handleChange('Experience', index, 'companyWebsite', e.target.value)}
+                                    onChange={(e) => handleChange?.('Experience', index, 'companyWebsite', e.target.value)}
                                 />
                             </div>
                         </form>
@@ -77,8 +86,8 @@ const ExperiencePage = ({ setPage, user, handleChange, years, addField, deleteSe
                                     monthValue={exp.startMonth}
                                     yearValue={exp.startYear}
                                     years={years}
-                                    onChangeMonth={(e) => handleChange('Experience', index, 'startMonth', e.target.value)}
-                                    onChangeYear={(e) => handleChange('Experience', index, 'startYear', e.target.value)} />
+                                    onChangeMonth={(e) => handleChange?.('Experience', index, 'startMonth', e.target.value)}
+                                    onChangeYear={(e) => handleChange?.('Experience', index, 'startYear', e.target.value)} />
 
                             </div>
                             <h5>End Date</h5>
@@ -87,8 +96,8 @@ const ExperiencePage = ({ setPage, user, handleChange, years, addField, deleteSe
                                     monthValue={exp.endMonth}
                                     yearValue={exp.endYear}
                                     years={years}
-                                    onChangeMonth={(e) => handleChange('Experience', index, 'endMonth', e.target.value)}
-                                    onChangeYear={(e) => handleChange('Experience', index, 'endYear', e.target.value)} />
+                                    onChangeMonth={(e) => handleChange?.('Experience', index, 'endMonth', e.target.value)}
+                                    onChangeYear={(e) => handleChange?.('Experience', index, 'endYear', e.target.value)} />
                             </div>
                         </form>
                         <hr></hr>

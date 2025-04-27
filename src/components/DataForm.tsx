@@ -6,6 +6,7 @@ import { faBoltLightning } from '@fortawesome/free-solid-svg-icons';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import React, { Fragment } from 'react';
+import { DataFormProps } from './types';
 
 const buttons = [{
     icon: faUser,
@@ -36,7 +37,7 @@ const pageMap = {
     'Skills' : 'SkillsPage',
     'Languages': 'LanguagesPage'
 }
-const DataForm = ({ setPage }) => {
+const DataForm: React.FC<DataFormProps> =({ setPage }) => {
  return (
     <div className="DataForm">
         <h3>CV</h3>

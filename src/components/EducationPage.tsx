@@ -1,10 +1,17 @@
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import DataSelect from './DataSelect';
+import { PageProps } from './types';
 
-
-const EducationPage = ({ user, setPage, setUser, handleChange, years, addField, deleteSection }) => {
+const EducationPage: React.FC<PageProps> = ({
+    user,
+    setPage,
+    handleChange,
+    years,
+    addField,
+    deleteSection }) => {
     return (
         <div className='EducationPageContainer'>
             <div className='topBar'>
@@ -27,14 +34,14 @@ const EducationPage = ({ user, setPage, setUser, handleChange, years, addField, 
 
             </div>
             {user?.Education?.map((edu, index) => (
-                <div key={edu.id || index}>
+                <div key={index}>
                     <div className='SecondBlockEd'>
                         <div className='delete'>
                             Delete
                             <FontAwesomeIcon
                                 icon={faTrash}
                                 id='trashIcon'
-                                onClick={() => deleteSection('Education', edu.id)}
+                                onClick={() => deleteSection('Education', index)}
                             /></div>
                         <form>
                             <div className='inputField'>

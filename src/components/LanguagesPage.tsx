@@ -1,8 +1,14 @@
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import DataSelect from './DataSelect';
-const LanguagesPage = ({ user, setPage, handleChange, addField, deleteSection }) => {
+import { PageProps } from './types';
+const LanguagesPage: React.FC<PageProps> = ({
+   user,
+   setPage,
+   handleChange,
+   addField,
+   deleteSection }) => {
    return (
       <div className='LanguagesPageContainer'>
          <div className='topBar'>
@@ -10,25 +16,25 @@ const LanguagesPage = ({ user, setPage, handleChange, addField, deleteSection })
             <FontAwesomeIcon
                icon={faChevronLeft}
                id='ChevronBackIcon'
-               onClick={() => setPage('DataForm')}
+               onClick={() => setPage?.('DataForm')}
             />
          </div>
          <div className='FirstBlock'>
             <button className='addButton'
-               onClick={() => addField('Languages', {
+               onClick={() => addField?.('Languages', {
                   language: '',
                   proficiency: '',
                })}> + Add </button>
 
          </div>
          {user.Languages.map((lang, index) => (
-            <div key={lang.id}>
+            <div key={index}>
                <div className='delete'>
                   Delete
                   <FontAwesomeIcon
                      icon={faTrash}
                      id='trashIcon'
-                     onClick={() => deleteSection('Languages', lang.id)}
+                     onClick={() => deleteSection?.('Languages', index)}
                   /></div>
                <div className='SecondBlockLang'>
                   <div className='inputField'>
@@ -37,11 +43,11 @@ const LanguagesPage = ({ user, setPage, handleChange, addField, deleteSection })
                         name={`language-${index}`}
                         id='language'
                         value={lang.language}
-                        onChange={(e) => handleChange('Languages', index, 'language', e.target.value)}
+                        onChange={(e) => handleChange?.('Languages', index, 'language', e.target.value)}
                      />
                   </div>
                   <div className='inputField'>
-                     <select className='proficiency' value={lang.proficiency} onChange={(e) => handleChange('Languages', index, 'proficiency', e.target.value)}>
+                     <select className='proficiency' value={lang.proficiency} onChange={(e) => handleChange?.('Languages', index, 'proficiency', e.target.value)}>
                         <option value='' disabled>Proficiency</option>
                         <option value='Beginner'>Beginner</option>
                         <option value='Intermediate'>Intermediate</option>

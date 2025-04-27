@@ -1,8 +1,14 @@
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import DataSelect from './DataSelect';
-const SkillsPage = ({ setPage, user, handleChange, addField, deleteSection }) => {
+import { PageProps } from './types';
+const SkillsPage: React.FC<PageProps> = ({
+    setPage,
+    user,
+    handleChange,
+    addField,
+    deleteSection }) => {
     return (
         <div className='SkillsPageContainer'>
             <div className='topBar'>
@@ -10,12 +16,12 @@ const SkillsPage = ({ setPage, user, handleChange, addField, deleteSection }) =>
                 <FontAwesomeIcon
                     icon={faChevronLeft}
                     id='ChevronBackIcon'
-                    onClick={() => setPage('DataForm')}
+                    onClick={() => setPage?.('DataForm')}
                 />
             </div>
             <div className='FirstBlock'>
                 <button className='addButton'
-                    onClick={() => addField('Skills', {
+                    onClick={() => addField?.('Skills', {
 
                         skillsName: '',
                         proficiency: ''
@@ -24,13 +30,13 @@ const SkillsPage = ({ setPage, user, handleChange, addField, deleteSection }) =>
 
             </div>
             {user.Skills.map((skill, index) => (
-                <div key={skill.id}>
+                <div key={index}>
                     <div className='delete'>
                         Delete
                         <FontAwesomeIcon
                             icon={faTrash}
                             id='trashIcon'
-                            onClick={() => deleteSection('Skills', skill.id)}
+                            onClick={() => deleteSection?.('Skills', index)}
                         /></div>
                     <div className='SecondBlockSkill'>
 
@@ -40,12 +46,12 @@ const SkillsPage = ({ setPage, user, handleChange, addField, deleteSection }) =>
                                 name={`skillName-${index}`}
                                 id='skillName'
                                 value={skill.skillsName}
-                                onChange={(e) => handleChange('Skills', index, 'skillsName', e.target.value)}
+                                onChange={(e) => handleChange?.('Skills', index, 'skillsName', e.target.value)}
                             />
 
                         </div>
                         <div className='inputField'>
-                            <select className='proficiency' value={skill.proficiency} onChange={(e) => handleChange('Skills', index, 'proficiency', e.target.value)}>
+                            <select className='proficiency' value={skill.proficiency} onChange={(e) => handleChange?.('Skills', index, 'proficiency', e.target.value)}>
                                 <option value='' disabled>Proficiency</option>
                                 <option value='Basic'>Basic</option>
                                 <option value='Intermediate'>Intermediate</option>

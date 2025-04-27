@@ -1,4 +1,6 @@
-const CvFields = ({ user }) => {
+import React from 'react';
+import { PageProps } from './types';
+const CvFields: React.FC<PageProps> = ({ user }) => {
   if (!user) return <p>Loading...</p>; 
 
   return (
