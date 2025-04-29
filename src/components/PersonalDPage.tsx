@@ -1,9 +1,16 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { PageProps } from './types';
+import { User } from './types';
 
-const PersonalDPage: React.FC<PageProps> = ({
+// Create a specific interface for PersonalDPage
+interface PersonalDPageProps {
+    user: User;
+    setPage: (page: string) => void;
+    handleChange: (user: User) => void;
+}
+
+const PersonalDPage: React.FC<PersonalDPageProps> = ({
     user,
     handleChange,
     setPage }) => {
@@ -12,7 +19,7 @@ const PersonalDPage: React.FC<PageProps> = ({
         <div className="PersonalPageContainer">
             <div className='topBar'>
                 <h3>Personal Details</h3>
-                <FontAwesomeIcon icon={faChevronLeft} id='ChevronBackIcon' onClick={() => setPage?.('DataForm')} />
+                <FontAwesomeIcon icon={faChevronLeft} id='ChevronBackIcon' onClick={() => setPage('DataForm')} />
             </div>
             <div className="FirstBlock">
                 <form>

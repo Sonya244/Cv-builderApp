@@ -9,7 +9,6 @@ import SkillsPage from './components/SkillsPage';
 import LanguagesPage from './components/LanguagesPage';
 import { User, Education, Language, Skill, Experience, LanguagProficiency, SkillProficiency, Section } from './components/types';
 
-
 function App() {
   const [user, setUser] = useState<User>({
     firstName: 'John',
@@ -51,7 +50,7 @@ function App() {
       {
         skillsName: '',
         proficiency: SkillProficiency.Basic
-      
+
       }
     ],
     languages: [
@@ -65,7 +64,7 @@ function App() {
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: 20 }, (_, i) => currentYear - i);
 
-  const handleChange = (section: Section, index, field, value) => {
+  const handleChange = (section: Section, index: number, field: string, value: string) => {
     setUser((prevUser) => {
       const updatedSection = [...prevUser[section]];
       updatedSection[index] = { ...updatedSection[index], [field]: value };
@@ -80,7 +79,7 @@ function App() {
     })
     );
   }
-  const deleteSection = (section: Section, index) => {
+  const deleteSection = (section: Section, index: number) => {
     setUser(prevUser => {
       const updatedSection = [
         ...prevUser[section].slice(0, index),
@@ -95,9 +94,16 @@ function App() {
   }
 
   const [page, setPage] = useState('DataForm');
-  const pages = {
+
+  // Type the pages object with explicit types
+  type PagesType = {
+    [key: string]: React.ReactNode;
+  };
+
+
+  const pages: PagesType = {
     DataForm: <DataForm setPage={setPage} />,
-    PersonalDPage: <PersonalDPage user={user} setPage={setPage} />,
+    PersonalDPage: <PersonalDPage user={user} setPage={setPage} handleChange={setUser} />,
     ExperiencePage: <ExperiencePage user={user} setPage={setPage} handleChange={handleChange} years={years} addField={addField} deleteSection={deleteSection} />,
     EducationPage: <EducationPage user={user} setPage={setPage} handleChange={handleChange} years={years} addField={addField} deleteSection={deleteSection} />,
     SkillsPage: <SkillsPage user={user} setPage={setPage} handleChange={handleChange} addField={addField} deleteSection={deleteSection} />,
