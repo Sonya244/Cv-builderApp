@@ -7,7 +7,7 @@ import ExperiencePage from './components/ExperiencePage';
 import EducationPage from './components/EducationPage';
 import SkillsPage from './components/SkillsPage';
 import LanguagesPage from './components/LanguagesPage';
-import { User, Education, Language, Skill, Experience } from './components/types';
+import { User, Education, Language, Skill, Experience, LanguagProficiency, SkillProficiency, Section } from './components/types';
 
 
 function App() {
@@ -20,12 +20,12 @@ function App() {
       email: 'johnnoe@email.com',
       webSite: 'johnDoe.com'
     },
-    Location: {
+    location: {
       city: 'Amsterdam',
       country: 'Netherlands'
     },
 
-    Experience: [
+    experience: [
       {
         jobTitle: '',
         companyName: '',
@@ -37,7 +37,7 @@ function App() {
       }
     ]
     ,
-    Education: [
+    education: [
       {
         university: '',
         degree: '',
@@ -47,16 +47,17 @@ function App() {
         endYear: ''
       }
     ],
-    Skills: [
+    skills: [
       {
         skillsName: '',
-        proficiency: ''
+        proficiency: SkillProficiency.Basic
+      
       }
     ],
-    Languages: [
+    languages: [
       {
         language: '',
-        proficiency: ''
+        proficiency: LanguagProficiency.Beginner
       }
     ]
   })
@@ -64,48 +65,49 @@ function App() {
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: 20 }, (_, i) => currentYear - i);
 
-  const handleChange = (section, index, field, value) => {
+  const handleChange = (section: Section, index, field, value) => {
     setUser((prevUser) => {
       const updatedSection = [...prevUser[section]];
       updatedSection[index] = { ...updatedSection[index], [field]: value };
       return { ...prevUser, [section]: updatedSection }
     })
   }
-  const addField = (section, newField: Education | Language | Skill | Experience) => {
+
+  const addField = (section: Section, newField: Education | Language | Skill | Experience) => {
     setUser((prevUser) => ({
       ...prevUser,
-      [section]: [...prevUser[section], newField ]
+      [section]: [...prevUser[section], newField]
     })
     );
   }
-  const deleteSection = (section, index) => {
+  const deleteSection = (section: Section, index) => {
     setUser(prevUser => {
       const updatedSection = [
         ...prevUser[section].slice(0, index),
-        ...prevUser[section].slice(index +1),
+        ...prevUser[section].slice(index + 1),
       ];
       return {
         ...prevUser,
         [section]: updatedSection,
       }
-    
+
     })
   }
 
   const [page, setPage] = useState('DataForm');
   const pages = {
     DataForm: <DataForm setPage={setPage} />,
-    PersonalDPage: <PersonalDPage user={user} setUser={setUser} setPage={setPage} />,
-    ExperiencePage: <ExperiencePage user={user} setUser={setUser} setPage={setPage} handleChange={handleChange} years={years} addField={addField} deleteSection={deleteSection} />,
-    EducationPage: <EducationPage user={user} setUser={setUser} setPage={setPage} handleChange={handleChange} years={years} addField={addField} deleteSection={deleteSection} />,
-    SkillsPage: <SkillsPage user={user} setUser={setUser} setPage={setPage} handleChange={handleChange} addField={addField} deleteSection={deleteSection} />,
-    LanguagesPage: <LanguagesPage user={user} setUser={setUser} setPage={setPage} handleChange={handleChange} addField={addField} deleteSection={deleteSection} />
+    PersonalDPage: <PersonalDPage user={user} setPage={setPage} />,
+    ExperiencePage: <ExperiencePage user={user} setPage={setPage} handleChange={handleChange} years={years} addField={addField} deleteSection={deleteSection} />,
+    EducationPage: <EducationPage user={user} setPage={setPage} handleChange={handleChange} years={years} addField={addField} deleteSection={deleteSection} />,
+    SkillsPage: <SkillsPage user={user} setPage={setPage} handleChange={handleChange} addField={addField} deleteSection={deleteSection} />,
+    LanguagesPage: <LanguagesPage user={user} setPage={setPage} handleChange={handleChange} addField={addField} deleteSection={deleteSection} />
   }
 
   return (
     <div className='Container'>
       <div className='ContainerCv'>
-        < Navbar user={user} />
+        <Navbar user={user} />
         <CvFields user={user} />
       </div>
       <div className='ContainerDataForm'>

@@ -5,7 +5,7 @@ import { PageProps } from './types';
 
 const PersonalDPage: React.FC<PageProps> = ({
     user,
-    setUser,
+    handleChange,
     setPage }) => {
 
     return (
@@ -18,15 +18,15 @@ const PersonalDPage: React.FC<PageProps> = ({
                 <form>
                     <div className='inputField'>
                         <label htmlFor='name' > First Name </label>
-                        <input type='text' name='name' id='name' value={user.firstName} onChange={e => setUser?.({ ...user, firstName: e.target.value })} />
+                        <input type='text' name='name' id='name' value={user.firstName} onChange={e => handleChange({ ...user, firstName: e.target.value })} />
                     </div>
                     <div className='inputField'>
                         <label htmlFor='last-name'>Last Name</label>
-                        <input type='text' name='last-name' id='last-name' value={user.lastName} onChange={e => setUser?.({ ...user, lastName: e.target.value })} />
+                        <input type='text' name='last-name' id='last-name' value={user.lastName} onChange={e => handleChange({ ...user, lastName: e.target.value })} />
                     </div>
                     <div className='inputField'>
                         <label htmlFor='job-title'>Job Title</label>
-                        <input type='text' name='job-title' id='job-title' value={user.jobTitle} onChange={e => setUser?.({ ...user, jobTitle: e.target.value })} />
+                        <input type='text' name='job-title' id='job-title' value={user.jobTitle} onChange={e => handleChange({ ...user, jobTitle: e.target.value })} />
                     </div>
                 </form>
             </div>
@@ -35,15 +35,15 @@ const PersonalDPage: React.FC<PageProps> = ({
                 <form id='secondBlockForm'>
                     <div className='inputField'>
                         <label htmlFor='phoneNumber'>Phone Number</label>
-                        <input type='tel' name='phoneNumber' id='phoneNumber' value={user.contactDetails.phoneNumber} onChange={e => setUser?.({ ...user, contactDetails: { ...user.contactDetails, phoneNumber: e.target.value } })}/>
+                        <input type='tel' name='phoneNumber' id='phoneNumber' value={user.contactDetails.phoneNumber} onChange={e => handleChange({ ...user, contactDetails: { ...user.contactDetails, phoneNumber: e.target.value } })}/>
                     </div>
                     <div className='inputField'>
                         <label htmlFor='email'>Email Address</label>
-                        <input type='email' name='email' id='email' value={user.contactDetails.email} onChange={e => setUser?.({ ...user, contactDetails: { ...user.contactDetails, email: e.target.value } })}/>
+                        <input type='email' name='email' id='email' value={user.contactDetails.email} onChange={e => handleChange({ ...user, contactDetails: { ...user.contactDetails, email: e.target.value } })}/>
                     </div>
                     <div className='inputField'>
                         <label htmlFor='website'>Personal Website</label>
-                        <input type='text' name='website' id='website' value={user.contactDetails.webSite} onChange={e => setUser?.({ ...user, contactDetails: { ...user.contactDetails, webSite: e.target.value } })}/>
+                        <input type='text' name='website' id='website' value={user.contactDetails.webSite} onChange={e => handleChange({ ...user, contactDetails: { ...user.contactDetails, webSite: e.target.value } })}/>
                     </div>
                 </form>
             </div>
@@ -52,11 +52,11 @@ const PersonalDPage: React.FC<PageProps> = ({
                 <div className='formCluster'>
                     <div className='inputField'>
                         <label htmlFor='city'>City</label>
-                        <input type='text' name='city' id='city' value={user.Location.city} onChange={e => setUser?.({ ...user, Location: { ...user.Location, city: e.target.value } })}/>
+                        <input type='text' name='city' id='city' value={user.location.city} onChange={e => handleChange({ ...user, location: { ...user.location, city: e.target.value } })}/>
                     </div>
                     <div className='inputField'>
                         <label htmlFor='country'>Country</label>
-                        <input type='text' name='country' id='country' value={user.Location.country} onChange={e => setUser?.({ ...user, Location: { ...user.Location, country: e.target.value } })}/>
+                        <input type='text' name='country' id='country' value={user.location.country} onChange={e => handleChange({ ...user, location: { ...user.location, country: e.target.value } })}/>
                     </div>
                 </div>
             </div>

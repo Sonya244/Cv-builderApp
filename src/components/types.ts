@@ -7,14 +7,14 @@ export type User = {
         email: string;
         webSite: string;
     };
-    Location: {
+    location: {
         city: string;
         country: string;
     };
-    Experience: Experience[];
-    Education: Education[];
-    Skills: Skill[];
-    Languages: Language[];
+    experience: Experience[];
+    education: Education[];
+    skills: Skill[];
+    languages: Language[];
 };
 
 export type Experience = {
@@ -37,30 +37,51 @@ export type Education = {
 
 export type Skill = {
     skillsName: string;
-    proficiency: string;
+    proficiency: SkillProficiency;
 };
+
+export enum SkillProficiency {
+  Basic = 'Basic',
+  Intermediate = 'Intermediate',
+  Advanced = 'Advanced',
+  Expert = 'Expert'
+}
+
+export enum LanguagProficiency {
+    Beginner = 'Beginner',
+    Intermediate = 'Intermediate',
+    Fluent = 'Fluent',
+    Native = 'Native'
+}
+
+export enum Section {
+    Experience = 'experience',
+    Education = 'education',
+    Skills = 'skills',
+    Languages = 'languages'
+}
 
 export type Language = {
     language: string;
-    proficiency: string;
+    proficiency: LanguagProficiency
 };
-type setUser = React.Dispatch<React.SetStateAction<User>>
+
+
+type fieldType = Education | Language | Skill | Experience
 
 export type PageProps = {
-    setPage?: (page: string) => void;
+    setPage: (page: string) => void;
     user: User;
-    setUser?: setUser;
-    handleChange?: (section: string, index: number, field: string, value: string) => void;
+    //setUser?: setUser;
+    handleChange?: (section: Section, index: number, field: string, value: string) => void;
     years?: number[];
-    addField?: (section: string, newField: any) => void;
-    deleteSection?: (section: string, index: number) => void;
+    // TODO DRY WITH FUNC DEF
+    addField?: (section: Section, newField: fieldType) => void;
+    deleteSection?: (section: Section, index: number) => void;
 }
 
 export type DataFormProps = {
     setPage: (page: string) => void;
 };
 
-export type CvFieldsProps = {
-    user?: User;
-}
 

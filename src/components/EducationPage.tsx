@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import DataSelect from './DataSelect';
-import { PageProps } from './types';
+import { PageProps, Section } from './types';
 
 const EducationPage: React.FC<PageProps> = ({
     user,
@@ -19,11 +19,11 @@ const EducationPage: React.FC<PageProps> = ({
                 <FontAwesomeIcon
                     id='ChevronBackIcon'
                     icon={faChevronLeft}
-                    onClick={() => setPage('DataForm')} />
+                    onClick={() => setPage?.('DataForm')} />
             </div>
             <div className='FirstBlock'>
                 <button className='addButton'
-                    onClick={() => addField('Education', {
+                    onClick={() => addField?.(Section.Education, {
                         university: '',
                         degree: '',
                         startMonth: '',
@@ -33,7 +33,7 @@ const EducationPage: React.FC<PageProps> = ({
                     })}>+ Add Education</button>
 
             </div>
-            {user?.Education?.map((edu, index) => (
+            {user?.education?.map((edu, index) => (
                 <div key={index}>
                     <div className='SecondBlockEd'>
                         <div className='delete'>
@@ -41,7 +41,7 @@ const EducationPage: React.FC<PageProps> = ({
                             <FontAwesomeIcon
                                 icon={faTrash}
                                 id='trashIcon'
-                                onClick={() => deleteSection('Education', index)}
+                                onClick={() => deleteSection?.(Section.Education, index)}
                             /></div>
                         <form>
                             <div className='inputField'>
@@ -50,7 +50,7 @@ const EducationPage: React.FC<PageProps> = ({
                                     name={`uni-${index}`}
                                     id='uni'
                                     value={edu.university}
-                                    onChange={(e) => handleChange('Education', index, 'university', e.target.value)}
+                                    onChange={(e) => handleChange?.(Section.Education, index, 'university', e.target.value)}
                                 />
                             </div>
                             <div className='inputField'>
@@ -59,7 +59,7 @@ const EducationPage: React.FC<PageProps> = ({
                                     name={`degree-${index}`}
                                     id='degree'
                                     value={edu.degree}
-                                    onChange={(e) => handleChange('Education', index, 'degree', e.target.value)} />
+                                    onChange={(e) => handleChange?.(Section.Education, index, 'degree', e.target.value)} />
                             </div>
                         </form>
                         <div className='ThirdBlockEd'>
@@ -70,8 +70,8 @@ const EducationPage: React.FC<PageProps> = ({
                                         monthValue={edu.startMonth}
                                         yearValue={edu.startYear}
                                         years={years}
-                                        onChangeMonth={(e) => handleChange('Education', index, 'startMonth', e.target.value)}
-                                        onChangeYear={(e) => handleChange('Education', index, 'startYear', e.target.value)} />
+                                        onChangeMonth={(e) => handleChange?.(Section.Education, index, 'startMonth', e.target.value)}
+                                        onChangeYear={(e) => handleChange?.(Section.Education, index, 'startYear', e.target.value)} />
                                 </div>
                                 <h5>End Date</h5>
                                 <div className='margin-bottom-div'>
@@ -79,8 +79,8 @@ const EducationPage: React.FC<PageProps> = ({
                                         monthValue={edu.endMonth}
                                         yearValue={edu.endYear}
                                         years={years}
-                                        onChangeMonth={(e) => handleChange('Education', index, 'endMonth', e.target.value)}
-                                        onChangeYear={(e) => handleChange('Education', index, 'endYear', e.target.value)} />
+                                        onChangeMonth={(e) => handleChange?.(Section.Education, index, 'endMonth', e.target.value)}
+                                        onChangeYear={(e) => handleChange?.(Section.Education, index, 'endYear', e.target.value)} />
                                 </div>
                             </form>
                             <hr></hr>

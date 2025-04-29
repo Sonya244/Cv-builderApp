@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import DataSelect from './DataSelect';
-import { PageProps } from './types';
+import { PageProps, Section } from './types';
 
 const ExperiencePage: React.FC<PageProps> = ({
     setPage,
@@ -24,25 +24,26 @@ const ExperiencePage: React.FC<PageProps> = ({
             </div>
             <div className='FirstBlock'>
                 <button className='addButton'
-                    onClick={() => addField?.('Experience', {
+                    onClick={() => addField?.(Section.Experience, {
                         jobTitle: '',
                         companyName: '',
                         companyWebsite: '',
                         startMonth: '',
+                        endMonth: '',
                         startYear: '',
                         endYear: '',
                     })}> + Add Experience
                 </button>
 
             </div>
-            {user.Experience?.map((exp, index) => (
+            {user.experience?.map((exp, index) => (
                 <div key={ index} >
                     <div className='delete'>
                         Delete
                         <FontAwesomeIcon
                             icon={faTrash}
                             id='trashIcon'
-                            onClick={() => deleteSection?.('Experience', index)}
+                            onClick={() => deleteSection?.(Section.Experience, index)}
                         /></div>
                     <div className='SecondBlockEx'>
 
@@ -54,7 +55,7 @@ const ExperiencePage: React.FC<PageProps> = ({
                                     name={`job-${index}`}
                                     id={`job-${index}`}
                                     value={exp.jobTitle}
-                                    onChange={(e) => handleChange?.('Experience', index, 'jobTitle', e.target.value)}
+                                    onChange={(e) => handleChange?.(Section.Experience, index, 'jobTitle', e.target.value)}
                                 />
                             </div>
                             <div className='inputField'>
@@ -63,7 +64,7 @@ const ExperiencePage: React.FC<PageProps> = ({
                                     name='company'
                                     id={`company-${index}`}
                                     value={exp.companyName}
-                                    onChange={(e) => handleChange?.('Experience', index, 'companyName', e.target.value)}
+                                    onChange={(e) => handleChange?.(Section.Experience, index, 'companyName', e.target.value)}
                                 />
                             </div>
                             <div className='inputField'>
@@ -72,7 +73,7 @@ const ExperiencePage: React.FC<PageProps> = ({
                                     name='website'
                                     id={`website-${index}`}
                                     value={exp.companyWebsite}
-                                    onChange={(e) => handleChange?.('Experience', index, 'companyWebsite', e.target.value)}
+                                    onChange={(e) => handleChange?.(Section.Experience, index, 'companyWebsite', e.target.value)}
                                 />
                             </div>
                         </form>
@@ -86,8 +87,8 @@ const ExperiencePage: React.FC<PageProps> = ({
                                     monthValue={exp.startMonth}
                                     yearValue={exp.startYear}
                                     years={years}
-                                    onChangeMonth={(e) => handleChange?.('Experience', index, 'startMonth', e.target.value)}
-                                    onChangeYear={(e) => handleChange?.('Experience', index, 'startYear', e.target.value)} />
+                                    onChangeMonth={(e) => handleChange?.(Section.Experience, index, 'startMonth', e.target.value)}
+                                    onChangeYear={(e) => handleChange?.(Section.Experience, index, 'startYear', e.target.value)} />
 
                             </div>
                             <h5>End Date</h5>
@@ -96,8 +97,8 @@ const ExperiencePage: React.FC<PageProps> = ({
                                     monthValue={exp.endMonth}
                                     yearValue={exp.endYear}
                                     years={years}
-                                    onChangeMonth={(e) => handleChange?.('Experience', index, 'endMonth', e.target.value)}
-                                    onChangeYear={(e) => handleChange?.('Experience', index, 'endYear', e.target.value)} />
+                                    onChangeMonth={(e) => handleChange?.(Section.Experience, index, 'endMonth', e.target.value)}
+                                    onChangeYear={(e) => handleChange?.(Section.Experience, index, 'endYear', e.target.value)} />
                             </div>
                         </form>
                         <hr></hr>

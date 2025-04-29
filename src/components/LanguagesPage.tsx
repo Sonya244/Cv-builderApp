@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { PageProps } from './types';
+import { LanguagProficiency, PageProps, Section } from './types';
 const LanguagesPage: React.FC<PageProps> = ({
    user,
    setPage,
@@ -21,20 +21,20 @@ const LanguagesPage: React.FC<PageProps> = ({
          </div>
          <div className='FirstBlock'>
             <button className='addButton'
-               onClick={() => addField?.('Languages', {
+               onClick={() => addField?.(Section.Languages, {
                   language: '',
-                  proficiency: '',
+                  proficiency: LanguagProficiency.Beginner,
                })}> + Add </button>
 
          </div>
-         {user.Languages.map((lang, index) => (
+         {user.languages?.map((lang, index) => (
             <div key={index}>
                <div className='delete'>
                   Delete
                   <FontAwesomeIcon
                      icon={faTrash}
                      id='trashIcon'
-                     onClick={() => deleteSection?.('Languages', index)}
+                     onClick={() => deleteSection?.(Section.Languages, index)}
                   /></div>
                <div className='SecondBlockLang'>
                   <div className='inputField'>
@@ -43,11 +43,11 @@ const LanguagesPage: React.FC<PageProps> = ({
                         name={`language-${index}`}
                         id='language'
                         value={lang.language}
-                        onChange={(e) => handleChange?.('Languages', index, 'language', e.target.value)}
+                        onChange={(e) => handleChange?.(Section.Languages, index, 'language', e.target.value)}
                      />
                   </div>
                   <div className='inputField'>
-                     <select className='proficiency' value={lang.proficiency} onChange={(e) => handleChange?.('Languages', index, 'proficiency', e.target.value)}>
+                     <select className='proficiency' value={lang.proficiency} onChange={(e) => handleChange?.(Section.Languages, index, 'proficiency', e.target.value)}>
                         <option value='' disabled>Proficiency</option>
                         <option value='Beginner'>Beginner</option>
                         <option value='Intermediate'>Intermediate</option>

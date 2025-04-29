@@ -1,6 +1,10 @@
 import React from 'react';
-import { PageProps } from './types';
-const CvFields: React.FC<PageProps> = ({ user }) => {
+import {  User } from './types';
+
+type CvFieldsProps = {
+  user: User
+}
+const CvFields: React.FC<CvFieldsProps> = ({ user }) => {
   if (!user) return <p>Loading...</p>; 
 
   return (
@@ -8,7 +12,7 @@ const CvFields: React.FC<PageProps> = ({ user }) => {
       <div className="Field Experience">
         <h3>Experience</h3>
         <hr />
-        {user.Experience?.map((exp, index) => (
+        {user.experience?.map((exp, index) => (
           <div key={index}>
             <div className="divClust">
               <p>{exp.jobTitle}</p>
@@ -29,7 +33,7 @@ const CvFields: React.FC<PageProps> = ({ user }) => {
       <div className="Field">
         <h3>Education</h3>
         <hr />
-        {user.Education?.map((edu, index) => (
+        {user.education?.map((edu, index) => (
           <div key={index}>
             <div className='divClust'>
               <p>{edu.university}</p>
@@ -45,7 +49,7 @@ const CvFields: React.FC<PageProps> = ({ user }) => {
       <div className="Field">
         <h3>Skills</h3>
         <hr />
-        {user.Skills?.map((skill, index) => (
+        {user.skills?.map((skill, index) => (
           <div className="divClust" key={index}>
             <p>{skill.skillsName}</p>
             <span>{skill.proficiency}</span>
@@ -56,7 +60,7 @@ const CvFields: React.FC<PageProps> = ({ user }) => {
       <div className="Field">
         <h3>Languages</h3>
         <hr />
-        {user.Languages?.map((lang, index) => (
+        {user.languages?.map((lang, index) => (
           <div className="divClust" key={index}>
             <p>{lang.language}</p>
             <span>{lang.proficiency}</span>

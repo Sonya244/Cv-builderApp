@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { PageProps } from './types';
+import { PageProps, Section, SkillProficiency } from './types';
 const SkillsPage: React.FC<PageProps> = ({
     setPage,
     user,
@@ -21,22 +21,22 @@ const SkillsPage: React.FC<PageProps> = ({
             </div>
             <div className='FirstBlock'>
                 <button className='addButton'
-                    onClick={() => addField?.('Skills', {
+                    onClick={() => addField?.(Section.Skills, {
 
                         skillsName: '',
-                        proficiency: ''
+                        proficiency: SkillProficiency.Basic
 
                     })}> + Add</button>
 
             </div>
-            {user.Skills.map((skill, index) => (
+            {user.skills.map((skill, index) => (
                 <div key={index}>
                     <div className='delete'>
                         Delete
                         <FontAwesomeIcon
                             icon={faTrash}
                             id='trashIcon'
-                            onClick={() => deleteSection?.('Skills', index)}
+                            onClick={() => deleteSection?.(Section.Skills, index)}
                         /></div>
                     <div className='SecondBlockSkill'>
 
@@ -46,12 +46,12 @@ const SkillsPage: React.FC<PageProps> = ({
                                 name={`skillName-${index}`}
                                 id='skillName'
                                 value={skill.skillsName}
-                                onChange={(e) => handleChange?.('Skills', index, 'skillsName', e.target.value)}
+                                onChange={(e) => handleChange?.(Section.Skills, index, 'skillsName', e.target.value)}
                             />
 
                         </div>
                         <div className='inputField'>
-                            <select className='proficiency' value={skill.proficiency} onChange={(e) => handleChange?.('Skills', index, 'proficiency', e.target.value)}>
+                            <select className='proficiency' value={skill.proficiency} onChange={(e) => handleChange?.(Section.Skills, index, 'proficiency', e.target.value)}>
                                 <option value='' disabled>Proficiency</option>
                                 <option value='Basic'>Basic</option>
                                 <option value='Intermediate'>Intermediate</option>

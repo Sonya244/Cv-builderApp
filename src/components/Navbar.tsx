@@ -3,10 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { PageProps } from './types';
+import { User } from './types';
 
-
-const Navbar: React.FC<PageProps> = ({ user }) => {
+type NavBarProps = {
+    user: User
+}
+const Navbar: React.FC<NavBarProps> = ({ user }) => {
     return (
         <div className="NavBar">
             <div className="Title">
@@ -16,7 +18,7 @@ const Navbar: React.FC<PageProps> = ({ user }) => {
             <div className="Contacts">
                 <p><FontAwesomeIcon icon={faPhone} className='Icon' /> {user.contactDetails.phoneNumber}</p>
                 <p><FontAwesomeIcon icon={faEnvelope} className='Icon' /> {user.contactDetails.email}</p>
-                <p><FontAwesomeIcon icon={faLocationDot} className='Icon' /> {user.Location.city}, {user.Location.country}</p>
+                <p><FontAwesomeIcon icon={faLocationDot} className='Icon' /> {user.location.city}, {user.location.country}</p>
             </div>
         </div>
     )
