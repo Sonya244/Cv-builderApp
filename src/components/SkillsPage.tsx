@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { PageProps, Section, SkillProficiency } from './types';
+import AppContext from './UserContext';
 const SkillsPage: React.FC<PageProps> = ({
-    setPage,
-    user,
-    handleChange,
-    addField,
-    deleteSection }) => {
+}) => {
+    const { user,
+        setPage,
+        handleChange,
+        addField,
+        deleteSection
+    } = useContext(AppContext)
     return (
         <div className='SkillsPageContainer'>
             <div className='topBar'>

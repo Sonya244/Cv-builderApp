@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import DataSelect from './DataSelect';
 import { PageProps, Section } from './types';
+import AppContext from './UserContext';
 
 const EducationPage: React.FC<PageProps> = ({
-    user,
-    setPage,
-    handleChange,
-    years,
-    addField,
-    deleteSection }) => {
+    years
+}) => {
+    const { user,
+        addField,
+        deleteSection,
+        setPage,
+        handleChange,
+    } = useContext(AppContext)
     return (
         <div className='EducationPageContainer'>
             <div className='topBar'>

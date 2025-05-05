@@ -7,59 +7,11 @@ import ExperiencePage from './components/ExperiencePage';
 import EducationPage from './components/EducationPage';
 import SkillsPage from './components/SkillsPage';
 import LanguagesPage from './components/LanguagesPage';
-import { User, Education, Language, Skill, Experience, LanguagProficiency, SkillProficiency, Section } from './components/types';
+import { User, Education, Language, Skill, Experience, Section } from './components/types';
+import AppContext, { AppContextType, defaultUser } from './components/UserContext';
 
 function App() {
-  const [user, setUser] = useState<User>({
-    firstName: 'John',
-    lastName: 'Doe',
-    jobTitle: 'Programmer',
-    contactDetails: {
-      phoneNumber: '9999',
-      email: 'johnnoe@email.com',
-      webSite: 'johnDoe.com'
-    },
-    location: {
-      city: 'Amsterdam',
-      country: 'Netherlands'
-    },
-
-    experience: [
-      {
-        jobTitle: '',
-        companyName: '',
-        companyWebsite: '',
-        startMonth: '',
-        endMonth: '',
-        startYear: '',
-        endYear: ''
-      }
-    ]
-    ,
-    education: [
-      {
-        university: '',
-        degree: '',
-        startMonth: '',
-        endMonth: '',
-        startYear: '',
-        endYear: ''
-      }
-    ],
-    skills: [
-      {
-        skillsName: '',
-        proficiency: SkillProficiency.Basic
-
-      }
-    ],
-    languages: [
-      {
-        language: '',
-        proficiency: LanguagProficiency.Beginner
-      }
-    ]
-  })
+  const [user, setUser] = useState<User>(defaultUser)
 
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: 20 }, (_, i) => currentYear - i);
@@ -95,31 +47,40 @@ function App() {
 
   const [page, setPage] = useState('DataForm');
 
-  // Type the pages object with explicit types
   type PagesType = {
     [key: string]: React.ReactNode;
   };
 
-
   const pages: PagesType = {
     DataForm: <DataForm setPage={setPage} />,
-    PersonalDPage: <PersonalDPage user={user} setPage={setPage} handleChange={setUser} />,
-    ExperiencePage: <ExperiencePage user={user} setPage={setPage} handleChange={handleChange} years={years} addField={addField} deleteSection={deleteSection} />,
-    EducationPage: <EducationPage user={user} setPage={setPage} handleChange={handleChange} years={years} addField={addField} deleteSection={deleteSection} />,
-    SkillsPage: <SkillsPage user={user} setPage={setPage} handleChange={handleChange} addField={addField} deleteSection={deleteSection} />,
-    LanguagesPage: <LanguagesPage user={user} setPage={setPage} handleChange={handleChange} addField={addField} deleteSection={deleteSection} />
+    PersonalDPage: <PersonalDPage />,
+    ExperiencePage: <ExperiencePage years={years} />,
+    EducationPage: <EducationPage years={years} />,
+    SkillsPage: <SkillsPage />,
+    LanguagesPage: <LanguagesPage />
   }
 
   return (
-    <div className='Container'>
-      <div className='ContainerCv'>
-        <Navbar user={user} />
-        <CvFields user={user} />
+    <AppContext.Provider value={
+      {
+        user: user,
+        setPage: setPage,
+        setUser: setUser,
+        handleChange: handleChange,
+        deleteSection: deleteSection,
+        addField: addField,
+      } as AppContextType
+    }>
+      <div className='Container'>
+        <div className='ContainerCv'>
+          <Navbar user={user} />
+          <CvFields user={user} />
+        </div>
+        <div className='ContainerDataForm'>
+          {pages[page]}
+        </div>
       </div>
-      <div className='ContainerDataForm'>
-        {pages[page]}
-      </div>
-    </div>)
+    </AppContext.Provider>)
 }
 
 

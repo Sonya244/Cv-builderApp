@@ -67,15 +67,12 @@ export type Language = {
 };
 
 
-type fieldType = Education | Language | Skill | Experience
+export type fieldType = Education | Language | Skill | Experience
 
 export type PageProps = {
-    setPage: (page: string) => void;
-    user: User;
-    //setUser?: setUser;
+    setPage?: (page: string) => void;
     handleChange?: (section: Section, index: number, field: string, value: string) => void;
     years?: number[];
-    // TODO DRY WITH FUNC DEF
     addField?: (section: Section, newField: fieldType) => void;
     deleteSection?: (section: Section, index: number) => void;
 }

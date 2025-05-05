@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { LanguagProficiency, PageProps, Section } from './types';
+import AppContext from './UserContext';
 const LanguagesPage: React.FC<PageProps> = ({
-   user,
-   setPage,
-   handleChange,
-   addField,
-   deleteSection }) => {
+}) => {
+   const { user,
+      setPage,
+      handleChange,
+      addField,
+      deleteSection
+   } = useContext(AppContext)
    return (
       <div className='LanguagesPageContainer'>
          <div className='topBar'>
@@ -16,7 +19,7 @@ const LanguagesPage: React.FC<PageProps> = ({
             <FontAwesomeIcon
                icon={faChevronLeft}
                id='ChevronBackIcon'
-               onClick={() => setPage?.('DataForm')}
+               onClick={() => setPage('DataForm')}
             />
          </div>
          <div className='FirstBlock'>
